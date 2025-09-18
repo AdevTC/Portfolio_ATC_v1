@@ -1,0 +1,302 @@
+/* css/fab_styles.css - NUEVA LÓGICA BASADA EN CHECKBOX */
+
+.fab-checkbox-wrapper {
+    position: fixed;
+    bottom: var(--spacing-lg, 1.5rem);
+    /* === CAMBIO DE POSICIÓN PARA FAB === */
+    /* Lo movemos a la posición donde antes estaba el scroll-to-top (más cerca del borde) */
+    right: var(--spacing-lg, 1.5rem); /* ej: 24px desde el borde derecho */
+    z-index: 998; /* Mantener o ajustar z-index */
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+/* El checkbox real se oculta */
+.fab-checkbox-toggle__input {
+    display: none;
+}
+
+.fab-checkbox-toggle__button {
+    background-color: var(--color-accent, #ff8c00); /* Naranja */
+    color: var(--color-text-light, #f8f9fa);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: var(--box-shadow-medium, 0 8px 25px rgba(44, 62, 80, 0.1));
+    transition: transform var(--transition-fast, 0.2s ease-out), background-color var(--transition-fast, 0.2s ease-out);
+    z-index: 2; /* Encima de las acciones si se solapan */
+    position: relative; /* Para posicionar los iconos + y X dentro */
+    overflow: hidden;
+}
+
+.fab-checkbox-toggle__button:hover {
+    background-color: #e67e00; /* Naranja más oscuro */
+    transform: scale(1.05);
+}
+
+/* Iconos + y X dentro del botón/label */
+.fab-checkbox-toggle__button .fab-icon-plus,
+.fab-checkbox-toggle__button .fab-icon-close {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.fab-checkbox-toggle__button .fab-icon-close {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(-45deg) scale(0.7);
+}
+
+/* Cuando el checkbox está :checked (activado por clic en el label) */
+.fab-checkbox-toggle__input:checked + .fab-checkbox-toggle__button .fab-icon-plus {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(45deg) scale(0.7);
+}
+
+.fab-checkbox-toggle__input:checked + .fab-checkbox-toggle__button .fab-icon-close {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+}
+/* También podrías hacer que el botón mismo rote: */
+.fab-checkbox-toggle__input:checked + .fab-checkbox-toggle__button {
+    /* transform: rotate(45deg); */ /* Opcional si la transición de iconos es suficiente */
+}
+
+
+.fab-checkbox-actions {
+    display: flex;
+    flex-direction: column; /* Los botones de acción se apilan normalmente de arriba a abajo en el DOM */
+                            /* pero como el .fab-checkbox-wrapper es column-reverse, visualmente estarán encima */
+    align-items: center;
+    margin-bottom: var(--spacing-sm, 0.5rem);
+    
+    /* ESTADO OCULTO INICIALMENTE */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.9); /* Empezar un poco abajo y pequeño */
+    transition: opacity 0.25s ease-out, 
+                visibility 0s linear 0.25s, /* Ocultar después de la animación */
+                transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1); /* Curva "elástica" */
+}
+
+/* CUANDO EL CHECKBOX ESTÁ :checked, MOSTRAR LAS ACCIONES */
+.fab-checkbox-toggle__input:checked ~ .fab-checkbox-actions {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    transition: opacity 0.25s ease-out 0.1s, /* Pequeño delay para opacity y transform al entrar */
+                visibility 0s linear 0s,   /* Mostrar inmediatamente */
+                transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s;
+}
+
+.fab-checkbox-action__item {
+    background-color: var(--color-primary, #4a69bd); /* Azul por defecto */
+    color: var(--color-text-light, #f8f9fa);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: var(--box-shadow-soft, 0 4px 15px rgba(0, 0, 0, 0.05));
+    margin-top: var(--spacing-sm, 0.5rem);
+    text-decoration: none;
+    opacity: 0;
+    transform: scale(0.7);
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out, background-color var(--transition-fast, 0.2s ease-out);
+}
+
+.fab-checkbox-action__item:hover {
+    background-color: var(--color-accent, #ff8c00); /* <<< CAMBIO A NARANJA */
+    color: var(--color-text-light); /* Mantenemos texto claro si el fondo es naranja */
+    transform: scale(1.08);
+}
+
+/* CUANDO EL CHECKBOX ESTÁ :checked, animar los items individuales */
+.fab-checkbox-toggle__input:checked ~ .fab-checkbox-actions .fab-checkbox-action__item {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Delays para la animación escalonada (el orden es como en el HTML) */
+.fab-checkbox-toggle__input:checked ~ .fab-checkbox-actions .fab-checkbox-action__item:nth-child(1) { transition-delay: 0.15s; }
+.fab-checkbox-toggle__input:checked ~ .fab-checkbox-actions .fab-checkbox-action__item:nth-child(2) { transition-delay: 0.20s; }
+.fab-checkbox-toggle__input:checked ~ .fab-checkbox-actions .fab-checkbox-action__item:nth-child(3) { transition-delay: 0.25s; }
+.fab-checkbox-toggle__input:checked ~ .fab-checkbox-actions .fab-checkbox-action__item:nth-child(4) { transition-delay: 0.30s; }
+
+
+/* css/components/fab.css o similar */
+
+/* Estilos para el NUEVO Language FAB Wrapper */
+.language-fab-wrapper {
+    position: fixed;
+    bottom: var(--spacing-lg, 1.5rem);
+    left: var(--spacing-lg, 1.5rem); /* Posición abajo a la izquierda */
+    z-index: 997; /* Un poco por debajo del FAB de acciones rápidas si tienes ambos */
+    display: flex;
+    flex-direction: column-reverse; /* Para que las acciones aparezcan encima del botón principal */
+    align-items: center;
+}
+
+.language-fab-toggle__input {
+    display: none; /* Ocultar el checkbox real */
+}
+
+.language-fab-toggle__button {
+    background-color: var(--color-secondary); /* Azul Pizarra Oscuro, o el que prefieras */
+    color: var(--color-text-light, #f8f9fa);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem; /* Tamaño del icono de engranaje */
+    cursor: pointer;
+    box-shadow: var(--box-shadow-medium, 0 8px 25px rgba(44, 62, 80, 0.1));
+    transition: transform var(--transition-fast, 0.2s ease-out), background-color var(--transition-fast, 0.2s ease-out), box-shadow var(--transition-fast);
+    z-index: 2;
+    position: relative;
+    overflow: hidden; /* Para los iconos internos */
+}
+
+.language-fab-toggle__button:hover {
+    background-color: var(--color-primary); /* Azul Medio Clásico en hover */
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(var(--color-secondary-rgb), 0.2);
+}
+
+/* Iconos dentro del botón principal del Language FAB (engranaje y opcionalmente 'X') */
+.language-fab-toggle__button .fab-icon-main,
+.language-fab-toggle__button .fab-icon-close {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.language-fab-toggle__button .fab-icon-close {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(-45deg) scale(0.7);
+}
+
+.language-fab-toggle__input:checked + .language-fab-toggle__button .fab-icon-main {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(45deg) scale(0.7);
+}
+
+.language-fab-toggle__input:checked + .language-fab-toggle__button .fab-icon-close {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+}
+
+/* Contenedor de los botones de idioma */
+.language-fab-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--spacing-sm, 0.5rem); /* Espacio entre el FAB principal y los botones de acción */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px) scale(0.95);
+    transition: opacity 0.25s ease-out, 
+                visibility 0s linear 0.25s,
+                transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.language-fab-toggle__input:checked ~ .language-fab-actions {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    transition-delay: 0.05s; /* Pequeño delay al aparecer */
+}
+
+/* Botones individuales de idioma */
+.language-fab-action__item {
+    background-color: var(--color-surface-light); /* Fondo claro para los botones de idioma */
+    color: var(--color-secondary); /* Color del icono/texto, si usaras iconos FontAwesome */
+    width: 48px;  /* Ligeramente más pequeños que el FAB principal */
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem; /* Si usaras iconos FA */
+    cursor: pointer;
+    box-shadow: var(--box-shadow-soft, 0 4px 15px rgba(0, 0, 0, 0.05));
+    margin-top: var(--spacing-sm, 0.5rem);
+    text-decoration: none;
+    opacity: 0;
+    transform: scale(0.7);
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out, background-color var(--transition-fast, 0.2s ease-out), box-shadow var(--transition-fast);
+}
+
+.language-fab-action__item img {
+    width: 28px; /* Ajusta el tamaño de las banderas */
+    height: 28px;
+    border-radius: 50%; /* Para hacer las banderas redondas */
+    object-fit: cover;
+}
+
+.language-fab-action__item:hover {
+    background-color: var(--color-background-light);
+    border-color: var(--color-primary);
+    box-shadow: var(--box-shadow-medium);
+    transform: scale(1.08);
+}
+
+/* Animación escalonada para los botones de idioma al aparecer */
+.language-fab-toggle__input:checked ~ .language-fab-actions .language-fab-action__item {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* El orden es inverso al DOM debido a flex-direction: column-reverse */
+.language-fab-toggle__input:checked ~ .language-fab-actions .language-fab-action__item:nth-last-child(1) { transition-delay: 0.10s; }
+.language-fab-toggle__input:checked ~ .language-fab-actions .language-fab-action__item:nth-last-child(2) { transition-delay: 0.15s; }
+.language-fab-toggle__input:checked ~ .language-fab-actions .language-fab-action__item:nth-last-child(3) { transition-delay: 0.20s; }
+.language-fab-toggle__input:checked ~ .language-fab-actions .language-fab-action__item:nth-last-child(4) { transition-delay: 0.25s; }
+.language-fab-toggle__input:checked ~ .language-fab-actions .language-fab-action__item:nth-last-child(5) { transition-delay: 0.30s; }
+
+/* Ajustes si el modo oscuro está activado */
+body.dark-theme .language-fab-toggle__button {
+    background-color: var(--dark-color-surface-light); /* Un color de superficie oscuro */
+    color: var(--dark-color-text-light);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+body.dark-theme .language-fab-toggle__button:hover {
+    background-color: var(--color-primary); /* El primario puede ser el mismo o ajustado para dark theme */
+}
+
+body.dark-theme .language-fab-action__item {
+    background-color: var(--dark-color-surface-light);
+    border-color: var(--dark-color-border-light);
+    box-shadow: var(--dark-box-shadow-soft);
+}
+body.dark-theme .language-fab-action__item:hover {
+    background-color: var(--dark-color-background-light); /* Fondo más oscuro */
+    border-color: var(--color-primary);
+}
+
+.language-fab-action__item.active-lang-flag {
+    border: 2px solid var(--color-accent, #ff8c00); /* O un color primario */
+    box-shadow: 0 0 8px rgba(var(--color-accent-rgb, 255, 140, 0), 0.5);
+}
+
+body.dark-theme .language-fab-action__item.active-lang-flag {
+    border-color: var(--dark-color-accent, var(--color-accent)); /* Ajusta si el acento cambia en modo oscuro */
+    box-shadow: 0 0 8px rgba(var(--color-accent-rgb, 255, 140, 0), 0.7);
+}

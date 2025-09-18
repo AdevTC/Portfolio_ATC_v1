@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adrián Tomás Cerdá - Sviluppatore Full Stack</title>
+
+    <link rel="stylesheet" href="../css/base/base.css">
+    <link rel="stylesheet" href="../css/base/layout.css">
+    <link rel="stylesheet" href="../css/base/responsive.css">
+    <link rel="stylesheet" href="../css/base/variables.css">
+    <link rel="stylesheet" href="../css/components/components.css">
+    <link rel="stylesheet" href="../css/components/fab.css">
+    <link rel="stylesheet" href="../css/pages/index.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&family=Open+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="../img/ATCLogo2.png" alt="Logo ATC" class="logo-img">
+                Adrián Tomás
+            </a>
+
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="index.html" class="main-nav__link active">Home</a></li>
+                    <li><a href="sobre.html" class="main-nav__link">Chi Sono</a></li>
+                    <li><a href="experiencia.html" class="main-nav__link">Esperienza</a></li>
+                    <li><a href="educacion.html" class="main-nav__link">Formazione</a></li>
+                    <li><a href="habilidades.html" class="main-nav__link">Competenze</a></li>
+                    <li><a href="certificaciones.html" class="main-nav__link">Certificazioni</a></li>
+                    <li><a href="proyectos.html" class="main-nav__link">Progetti</a></li>
+                    <li><a href="testimonios.html" class="main-nav__link">Referenze</a></li>
+                    <li><a href="hobbies.html" class="main-nav__link">Hobby</a></li>
+                    <li><a href="contacto.html" class="main-nav__link">Contatti</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Cambia tema" title="Cambia tema">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
+            <button class="nav-toggle" id="navToggle" aria-label="Apri menu di navigazione" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero__video-container">
+                <video autoplay loop muted playsinline class="hero__video-bg">
+                    <source src="../vid/hero-background3.mp4" type="video/mp4">
+                    Il tuo browser non supporta i video HTML5.
+                </video>
+                <div class="hero__overlay"></div>
+            </div>
+            <div class="container hero__content">
+                <h1 class="hero__title animate-on-load">
+                    Ciao, sono <span class="hero__title--highlight">Adrián Tomás</span>
+                </h1>
+                <p class="hero__subtitle animate-on-load animate-delay-1" id="heroSubtitle">
+                    Sviluppatore Full Stack <span class="hero__subtitle--separator">|</span> Trasformo idee in
+                    soluzioni, costruendo il futuro con nuove creazioni.
+                </p>
+                <div class="hero__cta-group animate-on-load animate-delay-2">
+                    <a href="proyectos.html" class="btn btn--primary btn--hero">Vedi Progetti</a>
+                    <a href="contacto.html" class="btn btn--outline btn--hero">Contattami</a>
+                </div>
+                <div class="hero__social-links animate-on-load animate-delay-3">
+                    <a href="https://github.com/AdevTC" target="_blank" aria-label="GitHub" class="hero__social-link"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/adriantomascerda/" target="_blank" aria-label="LinkedIn"
+                        class="hero__social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:adriantomascv@gmail.com" aria-label="Email" class="hero__social-link"><i
+                            class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <a href="#section-intro" class="hero__scroll-indicator" aria-label="Vai alla sezione successiva">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <section class="section section--intro" id="section-intro">
+            <div class="container section__container section--intro__container">
+                <div class="section--intro__image-wrapper animate-on-scroll">
+                    <img src="../img/Adri2.jpg" alt="Adrián Tomás Cerdá" class="section--intro__profile-pic">
+                </div>
+                <div class="section--intro__text-content animate-on-scroll animate-delay-1">
+                    <h2 class="section__title section__title--left">Un Po' Su Di Me</h2>
+                    <p class="section__paragraph">
+                        Sviluppatore Full Stack con esperienza professionale in integrazioni SAP (CPI) e solide
+                        conoscenze in Java e architetture basate su microservizi. Ho lavorato in ambienti aziendali
+                        configurando connessioni cloud, sviluppando flussi di integrazione e automatizzando processi
+                        complessi.
+                    </p>
+                    <p class="section__paragraph">
+                        Attualmente sto ampliando le mie competenze imparando nuove tecnologie backend e frontend, con
+                        l'obiettivo di creare soluzioni complete, scalabili e in linea con le reali esigenze aziendali.
+                    </p>
+                    <a href="sobre.html" class="btn btn--secondary">Scopri di Più</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--featured-projects">
+            <div class="container section__container">
+                <h2 class="section__title section__title--center animate-on-scroll">Progetti in Evidenza</h2>
+                <div class="featured-projects__grid">
+                    <article class="project-card animate-on-scroll">
+                        <div class="project-card__image-container">
+                            <img src="../img/project1_placeholder.jpg" alt="Anteprima Progetto Alpha"
+                                class="project-card__image">
+                        </div>
+                        <div class="project-card__content">
+                            <h3 class="project-card__title">Piattaforma E-commerce Avanzata</h3>
+                            <p class="project-card__description">Sviluppo full-stack di una piattaforma e-commerce con
+                                architettura a microservizi, IA per raccomandazioni e gateway di pagamento integrato.
+                            </p>
+                            <div class="project-card__tags">
+                                <span class="tag">Java</span><span class="tag">Spring Boot</span><span
+                                    class="tag">React</span><span class="tag">AWS</span>
+                            </div>
+                            <a href="proyectos.html#proyecto-alpha" class="project-card__link">Vedi Dettagli <i
+                                    class="fas fa-long-arrow-alt-right"></i></a>
+                        </div>
+                    </article>
+                    <article class="project-card animate-on-scroll animate-delay-1">
+                        <div class="project-card__image-container">
+                            <img src="../img/project2_placeholder.jpg" alt="Anteprima Progetto SAP"
+                                class="project-card__image">
+                        </div>
+                        <div class="project-card__content">
+                            <h3 class="project-card__title">Ottimizzazione Integrazioni SAP</h3>
+                            <p class="project-card__description">Consulenza e sviluppo di flussi di integrazione in SAP
+                                CPI per ottimizzare la comunicazione tra ERP e applicazioni di terze parti, migliorando
+                                l'efficienza del 35%.</p>
+                            <div class="project-card__tags">
+                                <span class="tag">SAP CPI</span><span class="tag">Groovy</span><span class="tag">API
+                                    REST</span><span class="tag">XSLT</span>
+                            </div>
+                            <a href="proyectos.html#proyecto-sap" class="project-card__link">Vedi Dettagli <i
+                                    class="fas fa-long-arrow-alt-right"></i></a>
+                        </div>
+                    </article>
+                    <article class="project-card animate-on-scroll animate-delay-2">
+                        <div class="project-card__image-container">
+                            <img src="../img/project3_placeholder.jpg" alt="Anteprima Progetto App Mobile"
+                                class="project-card__image">
+                        </div>
+                        <div class="project-card__content">
+                            <h3 class="project-card__title">App Gestione Attività (Flutter)</h3>
+                            <p class="project-card__description">Creazione di un'app mobile multipiattaforma per la
+                                gestione delle attività personali, con sincronizzazione cloud (Firebase) e
+                                un'interfaccia utente intuitiva e moderna.</p>
+                            <div class="project-card__tags">
+                                <span class="tag">Flutter</span><span class="tag">Dart</span><span
+                                    class="tag">Firebase</span><span class="tag">UX/UI</span>
+                            </div>
+                            <a href="proyectos.html#proyecto-flutter" class="project-card__link">Vedi Dettagli <i
+                                    class="fas fa-long-arrow-alt-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="featured-projects__view-all animate-on-scroll">
+                    <a href="proyectos.html" class="btn btn--primary">Esplora Tutti i Miei Progetti</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--cta">
+            <div class="container section__container section--cta__container">
+                <h2 class="section__title section__title--center section__title--light animate-on-scroll">Hai un'Idea o
+                    un Progetto in Mente?</h2>
+                <p
+                    class="section__paragraph section__paragraph--light section__paragraph--center animate-on-scroll animate-delay-1">
+                    Mi piacerebbe conoscere le tue esigenze ed esplorare come possiamo lavorare insieme per trasformarle
+                    in realtà.
+                </p>
+                <a href="contacto.html"
+                    class="btn btn--outline btn--cta-final animate-on-scroll animate-delay-1">Parliamo del Tuo
+                    Progetto</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-section" id="footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Adrián Tomás Cerdá. Tutti i diritti riservati.</p>
+            <div class="social-links-footer"> <a href="https://github.com/AdevTC" target="_blank" aria-label="GitHub"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/adriantomascerda/" target="_blank" aria-label="LinkedIn"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="mailto:adriantomascv@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scrollToTopBtn" aria-label="Torna su" title="Torna su">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <div class="language-fab-wrapper">
+        <input type="checkbox" id="languageFabToggle" class="language-fab-toggle__input">
+        <label for="languageFabToggle" class="language-fab-toggle__button" aria-label="Seleziona lingua" title="Lingua">
+            <i class="fas fa-cog fab-icon-main"></i> <i class="fas fa-times fab-icon-close"></i> </label>
+        <div class="language-fab-actions">
+            <a href="../es/index.html" class="language-fab-action__item" title="Español">
+                <img src="../img/flags/es_flag.webp" alt="Español"> </a>
+            <a href="../en/index.html" class="language-fab-action__item" title="English">
+                <img src="../img/flags/en_flag.png" alt="English"> </a>
+            <a href="../fr/index.html" class="language-fab-action__item" title="Français">
+                <img src="../img/flags/fr_flag.webp" alt="Français"> </a>
+            <a href="../de/index.html" class="language-fab-action__item" title="Deutsch">
+                <img src="../img/flags/de_flag.png" alt="Deutsch"> </a>
+            <a href="../it/index.html" class="language-fab-action__item" title="Italiano">
+                <img src="../img/flags/it_flag.png" alt="Italiano"> </a>
+            <a href="/pt/index.html" class="language-fab-action__item" title="Português">
+                <img src="../img/flags/pt_flag.png" alt="Português"> </a>
+        </div>
+    </div>
+
+    <div class="fab-checkbox-wrapper">
+        <input type="checkbox" id="fabCheckboxToggle" class="fab-checkbox-toggle__input">
+        <label for="fabCheckboxToggle" class="fab-checkbox-toggle__button" aria-label="Azioni rapide">
+            <i class="fas fa-plus fab-icon-plus"></i>
+            <i class="fas fa-times fab-icon-close"></i>
+        </label>
+        <div class="fab-checkbox-actions">
+            <a href="contacto.html#contactForm" class="fab-checkbox-action__item" title="Invia Messaggio">
+                <i class="fas fa-paper-plane"></i>
+            </a>
+            <a href="mailto:adriantomascv@gmail.com" class="fab-checkbox-action__item" title="Invia Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://linkedin.com/in/adriantomascerda/" target="_blank" class="fab-checkbox-action__item"
+                title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="../pdf/Currículum Vitae ATC.pdf" target="_blank" class="fab-checkbox-action__item"
+                title="Scarica CV">
+                <i class="fas fa-file-download"></i>
+            </a>
+        </div>
+    </div>
+
+    <script src="../js/ui/navbar.js"></script>
+    <script src="../js/ui/scrollToTop.js"></script>
+    <script src="../js/ui/fab.js"></script>
+    <script src="../js/ui/themeToggle.js"></script>
+    <script src="../js/ui/animations.js"></script>
+    <script src="../js/ui/typewriter.js"></script>
+    <script src="../js/utils/smoothScroll.js"></script>
+    <script src="../js/utils/footerUtils.js"></script>
+    <script src="../js/ui/lang.js"></script>
+</body>
+
+</html>

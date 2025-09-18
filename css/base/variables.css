@@ -1,0 +1,151 @@
+/* css/modern_variables.css */
+:root {
+    /* Paleta Principal */
+    --color-primary: #4a69bd;         /* Azul Medio Clásico */
+    --color-primary-dark: #3e5776;   /* Azul más oscuro */
+    --color-primary-rgb: 74, 105, 189; /* Para usar en rgba() */
+    --color-secondary: #2c3e50;       /* Azul Pizarra Oscuro */
+    --color-secondary-rgb: 44, 62, 80; /* Para usar en rgba() */
+    --color-accent: #ff8c00;     
+    --color-accent: #ff8c00;
+    --color-accent-rgb: 255, 140, 0;     /* Naranja oscuro como acento */
+
+    /* Paleta de Grises y Texto */
+    --color-text-light: #f8f9fa;        /* Blanco/gris muy claro */
+    --color-text-dark: #212529;         /* Negro/gris muy oscuro */
+    --color-text-muted: #6c757d;        /* Gris medio */
+    --color-background-light: #f4f7f9;  /* Gris muy claro para fondos de sección */
+    --color-surface-light: #ffffff;     /* Blanco para tarjetas, navbar, etc. */
+    --color-border-light: #dee2e6;      /* Gris claro para bordes */
+
+    /* Tipografía */
+    --font-family-heading: 'Montserrat', sans-serif;
+    --font-family-body: 'Open Sans', sans-serif;
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
+
+    /* Tamaños Base */
+    --font-size-base: 1rem; /* 16px */
+    --line-height-base: 1.7;
+
+    /* Espaciado */
+    --spacing-xs: 0.25rem; /* 4px */
+    --spacing-sm: 0.5rem;  /* 8px */
+    --spacing-md: 1rem;    /* 16px */
+    --spacing-lg: 1.5rem;  /* 24px */
+    --spacing-xl: 2rem;    /* 32px */
+    --spacing-xxl: 3rem;   /* 48px */
+    --spacing-section: 5rem; /* 80px para padding vertical de secciones */
+
+    /* Bordes y Sombras */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --box-shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --box-shadow-medium: 0 8px 25px rgba(44, 62, 80, 0.1);
+    --navbar-footer-shadow: 0 3px 10px rgba(0, 0, 0, 0.07); /* Sombra para navbar y footer */
+
+
+    /* Navbar */
+    --navbar-height: 70px;
+    --navbar-background: rgba(255, 255, 255, 0.9); /* Blanco semi-transparente */
+    --navbar-backdrop-blur: 8px;
+
+
+    /* Transiciones */
+    --transition-fast: 0.2s ease-out;
+    --transition-normal: 0.3s ease-out;
+
+     /* === NUEVAS VARIABLES PARA MODO OSCURO === */
+    --dark-color-primary: var(--color-primary); /* Puedes mantener el mismo primario o aclararlo */
+    --dark-color-primary-dark: var(--color-primary-dark);
+    --dark-color-secondary: #3a506b; /* Un azul pizarra más claro o diferente para el modo oscuro */
+    --dark-color-accent: var(--color-accent); /* Mantener el mismo acento o ajustarlo */
+
+    --dark-color-text-light: #e0e0e0; /* Texto principal en modo oscuro (casi blanco) */
+    --dark-color-text-dark: #1a1a1a;  /* Para usar sobre superficies claras en modo oscuro si las hay */
+    --dark-color-text-muted: #a0a0a0; /* Gris claro para texto menos importante */
+
+    --dark-color-background-light: #121212; /* Fondo MUY oscuro (casi negro) */
+    --dark-color-surface-light: #1e1e1e;    /* Fondo para tarjetas, navbar (un poco menos oscuro) */
+    --dark-color-border-light: #333333;     /* Bordes oscuros */
+
+    --dark-navbar-background: rgba(30, 30, 30, 0.85); /* Navbar en modo oscuro */
+    --dark-navbar-backdrop-blur: 8px;
+    --dark-navbar-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra más visible sobre oscuro */
+
+    --dark-box-shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.2);
+    --dark-box-shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.3);
+
+    /* MODO CLARO (POR DEFECTO) */
+    --text-color-main: #212529;         /* Texto principal oscuro */
+    --text-color-secondary: #6c757d;    /* Texto secundario/muted gris */
+    --text-color-headings: #2c3e50;     /* Color para H1-H6 (era --color-secondary) */
+    --bg-color-page: #f4f7f9;           /* Fondo general de la página */
+    --bg-color-surface: #ffffff;        /* Fondo de tarjetas, navbar, footer */
+    --border-color-default: #dee2e6;    /* Bordes */
+    --shadow-color-soft: rgba(0, 0, 0, 0.05);
+    --shadow-color-medium: rgba(44, 62, 80, 0.1);
+    --navbar-bg: rgba(255, 255, 255, 0.9);
+    --navbar-shadow: rgba(0, 0, 0, 0.07);
+    --footer-shadow: rgba(0, 0, 0, 0.06);
+
+    /* MODO OSCURO (DEFINICIONES) */
+    --dark-text-color-main: #e0e0e0;
+    --dark-text-color-secondary: #a0a0a0;
+    --dark-text-color-headings: #c8d6e5; /* Un azul/gris claro para títulos en modo oscuro */
+    --dark-bg-color-page: #121212;
+    --dark-bg-color-surface: #1e1e1e;
+    --dark-border-color-default: #333333;
+    --dark-shadow-color-soft: rgba(0, 0, 0, 0.2);
+    --dark-shadow-color-medium: rgba(0, 0, 0, 0.3);
+    --dark-navbar-bg: rgba(30, 30, 30, 0.85);
+    --dark-navbar-shadow: rgba(0, 0, 0, 0.3);
+    --dark-footer-shadow: rgba(0, 0, 0, 0.25);
+}
+
+/* Clase que se añadirá al <body> para activar el modo oscuro */
+body.dark-theme {
+    --color-primary: var(--dark-color-primary);
+    --color-primary-dark: var(--dark-color-primary-dark);
+    --color-secondary: var(--dark-color-secondary);
+    --color-accent: var(--dark-color-accent);
+
+    --color-text-light: var(--dark-color-text-light); /* El texto "claro" ahora es el principal */
+    --color-text-dark: var(--color-secondary-rgb);   /* El texto "oscuro" es para fondos claros si los hay */
+    --color-text-muted: var(--dark-color-text-muted);
+
+    --color-background-light: var(--dark-color-background-light);
+    --color-surface-light: var(--dark-color-surface-light);
+    --color-border-light: var(--dark-color-border-light);
+
+    --navbar-background: var(--dark-navbar-background);
+    --navbar-backdrop-blur: var(--dark-navbar-backdrop-blur);
+    --navbar-box-shadow: var(--dark-navbar-box-shadow);
+
+    --box-shadow-soft: var(--dark-box-shadow-soft);
+    --box-shadow-medium: var(--dark-box-shadow-medium);
+
+    /* Colores específicos para el modo oscuro que no se mapean 1 a 1 */
+    background-color: var(--dark-color-background-light); /* Fondo del body */
+    color: var(--dark-color-text-light); /* Color de texto principal del body */
+
+    --text-color-main: var(--dark-text-color-main);
+    --text-color-secondary: var(--dark-text-color-secondary);
+    --text-color-headings: var(--dark-text-color-headings);
+    --bg-color-page: var(--dark-bg-color-page);
+    --bg-color-surface: var(--dark-bg-color-surface);
+    --border-color-default: var(--dark-border-color-default);
+    --shadow-color-soft: var(--dark-shadow-color-soft);
+    --shadow-color-medium: var(--dark-shadow-color-medium);
+    --navbar-bg: var(--dark-navbar-bg);
+    --navbar-shadow: var(--dark-navbar-shadow);
+    --footer-shadow: var(--dark-footer-shadow);
+
+    /* Aplicar colores base del body para modo oscuro */
+    background-color: var(--bg-color-page);
+    color: var(--text-color-main);
+
+}

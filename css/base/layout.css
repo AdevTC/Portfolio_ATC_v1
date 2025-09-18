@@ -1,0 +1,384 @@
+/* css/modern_layout_PRIMERO.css */
+
+/* --- Navbar (usando tus clases originales: .navbar, .logo, .main-nav, .nav-toggle) --- */
+.navbar { /* Clase original */
+    background-color: var(--navbar-bg);
+    box-shadow: 0 3px 10px var(--navbar-shadow);
+    backdrop-filter: blur(var(--navbar-backdrop-blur)); /* 8px */
+    -webkit-backdrop-filter: blur(var(--navbar-backdrop-blur));
+    height: var(--navbar-height); /* 70px */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 0; /* El .container interno manejará el padding lateral */
+}
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-left: var(--spacing-md);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: none; /* Anula el max-width del .container general para que se extienda */
+    padding-left: 30px;  /* Espacio desde el borde izquierdo */
+    padding-right: 30px; /* Espacio desde el borde derecho */
+}
+
+.navbar .logo { /* Clase original */
+    display: flex;
+    align-items: center;
+    color: var(--color-secondary); /* Azul Pizarra Oscuro */
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-bold);
+    font-size: 1.3rem;
+    text-decoration: none;
+}
+
+.navbar .logo-img { /* Clase original */
+    height: 32px;
+    margin-right: var(--spacing-sm); /* 8px */
+    border-radius: var(--spacing-sm); /* 8px - como lo pediste */
+}
+
+.navbar .main-nav ul { /* Estructura original */
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .main-nav ul li {
+    margin-left: var(--spacing-xs); /* 4px - como lo pediste */
+}
+.navbar .main-nav ul li:first-child {
+    margin-left: 0;
+}
+
+.navbar .main-nav ul li a {
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-medium); /* 500 */
+    font-size: 0.9rem;
+    color: var(--text-color-main); /* Texto oscuro */
+    padding: var(--spacing-sm) var(--spacing-md); /* 8px 16px */
+    border-radius: var(--border-radius-sm); /* 4px */
+    position: relative;
+    overflow: hidden;
+    transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.navbar .main-nav ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 80%;
+    height: 3px;
+    background-color: var(--color-primary); /* Azul Medio Clásico */
+    transform-origin: center;
+    transition: transform var(--transition-fast);
+}
+
+.navbar .main-nav ul li a:hover::before,
+.navbar .main-nav ul li a.active::before {
+    transform: translateX(-50%) scaleX(1);
+}
+
+.navbar .main-nav ul li a.active {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold); /* 700 */
+}
+
+/* Botón Hamburguesa (.nav-toggle y .hamburger-line son tus clases originales) */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    padding: var(--spacing-sm);
+    cursor: pointer;
+    z-index: 1010;
+}
+
+.nav-toggle .hamburger-line { /* Clase original */
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-secondary); /* Azul Pizarra Oscuro */
+    margin: 5px 0;
+    border-radius: 3px;
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.nav-toggle.nav-open .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.nav-toggle.nav-open .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle.nav-open .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* === ESTILOS PARA EL BANNER INTRODUCTORIO DE PÁGINA (MODIFICADO) === */
+.page-intro-banner {
+    /* Eliminamos el background-color o background-image que tenía antes */
+    color: var(--color-text-light); /* Texto blanco/claro sobre el video/overlay */
+    padding: var(--spacing-section) 0 calc(var(--spacing-section) + 50px); /* 80px arriba, 130px abajo */
+    position: relative; /* Clave para el posicionamiento absoluto de hijos */
+    overflow: hidden;   /* Para la forma y el video */
+    text-align: center;
+}
+
+.page-intro-banner__overlay { /* Añadir un overlay para legibilidad del texto sobre la imagen */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(var(--color-secondary-rgb, 44, 62, 80), 0.7); /* Overlay oscuro sutil */
+    z-index: 1;
+}
+
+.page-intro-banner__content {
+    position: relative;
+    z-index: 2; /* Encima del overlay */
+}
+
+.page-intro-banner__text-content { /* Contenedor del título y subtítulo */
+    max-width: 750px; /* Limitar ancho para mejor legibilidad */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-intro-banner__title {
+    font-family: var(--font-family-heading);
+    font-size: 2.8rem;
+    font-weight: var(--font-weight-black);
+    color: var(--color-text-light); /* Asegurar texto claro */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4); /* Sombra para mejorar legibilidad sobre video */
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+}
+
+.page-intro-banner__subtitle {
+    font-family: var(--font-family-body);
+    font-size: 1.1rem;
+    font-weight: var(--font-weight-light);
+    color: var(--color-text-light); /* Asegurar texto claro */
+    opacity: 0.9; /* Un poco menos prominente que el título */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    line-height: 1.6;
+}
+
+.page-intro-banner__shape {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: var(--bg-color-page); /* Color del fondo principal de la página (donde "aterriza" la forma) */
+    clip-path: polygon(0 100%, 100% 30%, 100% 100%); /* O tu forma preferida */
+    z-index: 1; /* Puede estar al mismo nivel que el overlay o encima si el overlay no cubre toda la altura del banner */
+}
+
+
+/* Contenedor del video y overlay */
+.page-intro-banner__video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Detrás del contenido y la forma */
+}
+
+.page-intro-banner__video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* Asegura que el video cubra todo el contenedor */
+}
+
+.page-intro-banner__video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Overlay oscuro para asegurar contraste del texto sobre el video */
+    /* Puedes usar tus variables --color-secondary-rgb y --color-primary-rgb como en el Hero, o uno más simple */
+    background-color: rgba(var(--color-secondary-rgb, 44, 62, 80), 0.7); /* Ejemplo: Azul pizarra con opacidad */
+    /* O un gradiente: */
+    /* background: linear-gradient(135deg, 
+        rgba(var(--color-secondary-rgb, 44, 62, 80), 0.75) 0%, 
+        rgba(var(--color-primary-rgb, 74, 105, 189), 0.65) 100%
+    ); */
+    z-index: 1; /* Encima del video, debajo del contenido del banner */
+}
+
+
+/* --- Footer (usando tus clases originales: .footer-section) --- */
+.footer-section { /* Clase original */
+    background-color: var(--bg-color-surface); /* Blanco */
+    color: var(--text-color-secondary); /* Gris para texto */
+    padding: var(--spacing-xl) 0; /* 32px vertical */
+    text-align: center;
+    border-top: 1px solid var(--border-color-default);
+    box-shadow: 0 -3px 10px var(--footer-shadow);
+}
+
+.footer-section p {
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-section .social-links-footer { /* Clase original */
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+}
+
+.footer-section .social-links-footer a {
+    font-size: 1.3rem;
+    color: var(--color-text-muted);
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.footer-section .social-links-footer a:hover {
+    color: var(--color-primary);
+    transform: scale(1.1);
+}
+
+
+/* --- Estructura General de Secciones --- */
+.section {
+    padding-top: var(--spacing-section);
+    padding-bottom: var(--spacing-section);
+}
+
+.section__title {
+    margin-bottom: var(--spacing-xl);
+    font-weight: var(--font-weight-black);
+    font-size: 2.5rem;
+    color: var(--color-secondary); /* Color base para títulos de sección */
+}
+
+.section__title--left {
+    text-align: left;
+}
+.section__title--center {
+    text-align: center;
+}
+.section__title--light { /* Para usar sobre fondos oscuros */
+    color: var(--color-text-light);
+}
+
+.section__paragraph {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    max-width: 700px; /* Para mejor legibilidad en párrafos anchos */
+}
+.section__paragraph--center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.section__paragraph--light { /* Para usar sobre fondos oscuros */
+    color: var(--color-text-light);
+    opacity: 0.9;
+}
+
+/* --- Botón Flotante "Volver Arriba" --- */
+.scroll-to-top {
+    position: fixed;
+    bottom: var(--spacing-lg, 1.5rem);
+    /* === CAMBIO DE POSICIÓN PARA SCROLL-TO-TOP === */
+    /* Lo movemos a la posición donde antes estaba el FAB */
+    right: calc(var(--spacing-lg, 1.5rem) + 50px + var(--spacing-md, 1rem)); /* ej: 24px + 50px (ancho FAB aprox) + 16px = 90px desde el borde */
+    width: 45px;
+    height: 45px;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--box-shadow-medium);
+    z-index: 999; /* Mantener o ajustar z-index si es necesario */
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8) translateY(10px);
+    transition: opacity var(--transition-normal), visibility var(--transition-normal), transform var(--transition-normal), background-color var(--transition-normal);
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) translateY(0);
+}
+
+.scroll-to-top:hover {
+    background-color: var(--color-primary-dark);
+    transform: scale(1.05);
+}
+
+/* Para que el texto de la navbar cambie bien: */
+body:not(.dark-theme) .navbar .main-nav ul li a { color: var(--color-text-dark); }
+body.dark-theme .navbar .main-nav ul li a { color: var(--color-text-light); }
+
+body:not(.dark-theme) .navbar .main-nav ul li a.active { color: var(--color-primary); }
+body.dark-theme .navbar .main-nav ul li a.active { color: var(--color-primary); } /* El primario ya cambia */
+
+body:not(.dark-theme) .navbar .main-nav ul li a::before { background-color: var(--color-primary); }
+body.dark-theme .navbar .main-nav ul li a::before { background-color: var(--color-primary); }
+
+
+/* Botón de cambio de tema */
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    color: var(--text-link-navbar); /* Usa la variable que cambia con el tema */
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+.theme-toggle-btn:hover {
+    color: var(--color-primary);
+    transform: scale(1.1);
+}
+.theme-toggle-btn .fa-sun { display: none; }
+body.dark-theme .theme-toggle-btn .fa-moon { display: none; }
+body.dark-theme .theme-toggle-btn .fa-sun { display: block; }
+body.dark-theme .theme-toggle-btn { color: var(--text-link-navbar); } /* Navbar text color en dark theme */
+body.dark-theme .theme-toggle-btn:hover { color: var(--color-accent); }
+
+/* Asegurar que los enlaces sociales del footer también cambien de color si es necesario */
+body:not(.dark-theme) .footer-section .social-links-footer a { color: var(--color-text-muted); }
+body.dark-theme .footer-section .social-links-footer a { color: var(--color-text-muted); } /* Muted ya cambia */
+
+body:not(.dark-theme) .footer-section .social-links-footer a:hover { color: var(--color-primary); }
+body.dark-theme .footer-section .social-links-footer a:hover { color: var(--color-primary); }

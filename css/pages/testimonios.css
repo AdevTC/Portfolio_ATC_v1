@@ -1,0 +1,167 @@
+/* css/modern_testimonios_PRIMERO.css */
+
+.section--testimonials {
+    background-color: var(--color-background-light); /* Fondo principal para esta sección */
+}
+
+.testimonial-card {
+    background-color: var(--color-surface-light); /* Fondo blanco para la tarjeta */
+    padding: var(--spacing-xl); /* Padding interno (32px) */
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-soft);
+    position: relative; /* Para posicionar el icono de comillas */
+    margin-bottom: var(--spacing-xl); /* Espacio entre tarjetas si hubiera un grid, o antes del <hr> */
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-medium);
+}
+
+.testimonial-card__quote-icon {
+    font-size: 2.5rem; /* Tamaño grande para las comillas */
+    color: var(--color-primary); /* Color primario */
+    opacity: 0.2; /* Hacerlas sutiles */
+    position: absolute;
+    top: var(--spacing-lg);
+    left: var(--spacing-lg);
+}
+
+.testimonial-card__quote {
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--color-text-dark);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-lg); /* Espacio antes del autor */
+    padding-left: calc(2.5rem + var(--spacing-md)); /* Espacio para que el texto no se solape con el icono de comillas */
+                                                    /* (tamaño del icono + un poco de margen) */
+    position: relative; /* Para asegurar que el texto esté sobre el icono si se solapan en algún caso extremo */
+}
+
+.testimonial-card__author {
+    text-align: right; /* Alinear información del autor a la derecha */
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border-light); /* Línea sutil encima del autor */
+    margin-top: var(--spacing-lg);
+}
+
+.testimonial-card__author-name strong {
+    font-size: 1rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-secondary); /* Azul Pizarra Oscuro */
+}
+
+.testimonial-card__author-title {
+    font-size: 0.85rem;
+    color: var(--color-text-muted); /* Gris */
+    margin-top: var(--spacing-xs);
+}
+
+/* El .section__divider ya está estilizado */
+/* No es necesario repetir aquí si está en modern_components_PRIMERO.css o similar */
+.section__divider { 
+    /* Si necesitas un margen diferente para los divisores en esta página específicamente: */
+    /* margin: var(--spacing-xl) auto; */
+}
+
+/* === NUEVOS ESTILOS: SECCIÓN Y FORMULARIO PARA ESCRIBIR TESTIMONIO === */
+
+.write-testimonial-section {
+    margin-top: var(--spacing-xxl); /* Espacio después del último testimonio o divisor */
+    padding-top: var(--spacing-xl);
+    /* background-color: var(--color-surface-light); /* Opcional: darle un fondo ligeramente diferente */
+    /* border-radius: var(--border-radius-md); */
+    /* box-shadow: var(--box-shadow-soft); */
+    /* padding: var(--spacing-xl); */ /* Si decides hacerlo tipo "tarjeta" */
+}
+
+.write-testimonial-section .section__title--center {
+    color: var(--color-secondary); /* O tu color de título preferido */
+    margin-bottom: var(--spacing-sm);
+}
+.write-testimonial-section .section__paragraph--center {
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-xl);
+    max-width: 600px; /* Limitar ancho del párrafo introductorio */
+}
+
+.testimonial-form {
+    max-width: 700px; /* Ancho máximo del formulario */
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--color-surface-light); /* Fondo blanco para el formulario */
+    padding: var(--spacing-xl); /* Padding interno */
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-medium); /* Sombra para destacar el formulario */
+}
+
+/* Estilos para .form-group, input, textarea, button pueden ser reutilizados de tu formulario de contacto. */
+/* Si no tienes estilos globales para ellos en modern_components_PRIMERO.css o modern_base.css, puedes añadirlos aquí o allá. */
+/* Asumiré que ya tienes estilos base para .form-group y los campos. */
+/* Si no, aquí tienes un ejemplo básico (similar al de contacto): */
+
+.testimonial-form .form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.testimonial-form label {
+    display: block;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-xs);
+}
+
+.testimonial-form input[type="text"],
+.testimonial-form textarea {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md); /* 8px 16px */
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-family-body);
+    font-size: 0.95rem;
+    color: var(--color-text-dark);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.testimonial-form input[type="text"]:focus,
+.testimonial-form textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb, 74, 105, 189), 0.2);
+}
+
+.testimonial-form textarea {
+    resize: vertical; /* Permitir redimensionar verticalmente */
+    min-height: 120px;
+}
+
+.testimonial-form .form-group--submit {
+    text-align: right; /* Alinear el botón a la derecha */
+    margin-top: var(--spacing-xl);
+}
+
+.testimonial-form .btn--primary {
+    /* Los estilos del .btn.btn--primary ya deberían estar definidos */
+}
+
+/* Mensajes del formulario (éxito/error) */
+/* Asumo que ya tienes .form-message de tu página de contacto, si no: */
+.form-message {
+    margin-top: var(--spacing-md);
+    text-align: center;
+    font-weight: var(--font-weight-medium);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    display: none; /* Oculto hasta que haya un mensaje */
+}
+.form-message.success {
+    background-color: rgba(var(--color-primary-rgb, 74, 105, 189), 0.1);
+    color: var(--color-primary-dark);
+    display: block;
+}
+.form-message.error { /* Si implementas errores */
+    background-color: rgba(220, 53, 69, 0.1); /* Ejemplo de color de error */
+    color: #dc3545;
+    display: block;
+}

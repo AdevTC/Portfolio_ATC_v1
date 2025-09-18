@@ -1,0 +1,67 @@
+/* css/modern_proyectos_PRIMERO.css */
+
+.section--projects {
+    background-color: var(--color-background-light); /* Fondo principal para esta sección */
+}
+
+/* Estilos para los filtros (opcional) */
+.project-filters {
+    margin-bottom: var(--spacing-xl); /* 32px */
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-sm); /* 8px */
+}
+
+.btn--filter { /* Estilo base para botones de filtro */
+    background-color: var(--color-surface-light);
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border-light);
+    padding: var(--spacing-xs) var(--spacing-md); /* Más pequeños */
+    font-size: 0.85rem;
+    font-weight: var(--font-weight-medium);
+    text-transform: none; /* Sin mayúsculas para los filtros */
+}
+
+.btn--filter:hover {
+    background-color: var(--color-background-light);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn--filter.active { /* Botón de filtro activo */
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border-color: var(--color-primary);
+}
+
+/* Grid para todas las tarjetas de proyecto en esta página */
+.projects-page-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Igual que en el index */
+    gap: var(--spacing-xl); /* 32px */
+}
+
+/* Los estilos para .project-card, .project-card__image-container, etc., */
+/* ya están definidos en modern_components_PRIMERO.css */
+
+/* Ajuste para los enlaces dentro de la tarjeta de proyecto */
+.project-card__links {
+    margin-top: var(--spacing-md); /* Espacio encima de los botones */
+    display: flex;
+    flex-wrap: wrap; /* Para que los botones se apilen si no caben */
+    gap: var(--spacing-sm); /* Espacio entre botones */
+}
+
+/* Modificador para botones más pequeños dentro de las tarjetas */
+.btn--small {
+    padding: var(--spacing-xs) var(--spacing-md); /* 4px 16px */
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-medium);
+    /* text-transform: none; */ /* Si quieres que no sean mayúsculas */
+}
+.btn--small i {
+    margin-left: var(--spacing-xs);
+    font-size: 0.9em;
+}

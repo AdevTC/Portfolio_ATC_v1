@@ -1,0 +1,243 @@
+/* css/modern_index_PRIMERO.css */
+
+/* --- Hero Section --- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    color: var(--color-text-light);
+    overflow: hidden;
+}
+
+.hero__video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.hero__video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(var(--color-secondary-rgb, 44, 62, 80), 0.85) 0%, 
+        rgba(var(--color-primary-rgb, 74, 105, 189), 0.75) 100%
+    );
+    z-index: -1;
+}
+
+.hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 850px;
+    padding: var(--spacing-xl);
+}
+
+.hero__title {
+    font-size: 3.5rem;
+    font-weight: var(--font-weight-black);
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-light);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.hero__title--highlight {
+    color: var(--color-accent);
+}
+
+.hero__subtitle {
+    font-size: 1.3rem;
+    font-weight: var(--font-weight-light);
+    margin-bottom: var(--spacing-xl);
+    color: rgba(248, 249, 250, 0.9);
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.typing-cursor {
+    display: inline-block;
+    width: 2px; /* Ancho del cursor */
+    height: 1.3em; /* Altura relativa al texto */
+    background-color: var(--color-text-light); /* Color del cursor */
+    animation: blink 0.7s infinite;
+    margin-left: 3px;
+    vertical-align: text-bottom;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.hero__subtitle--separator {
+    margin: 0 var(--spacing-sm);
+    opacity: 0.7;
+}
+
+.hero__cta-group {
+    margin-bottom: var(--spacing-xl);
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.hero__social-links {
+    margin-top: var(--spacing-lg);
+}
+
+.hero__social-link {
+    color: var(--color-text-light);
+    font-size: 1.5rem;
+    margin: 0 var(--spacing-md);
+    opacity: 0.8;
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.hero__social-link:hover {
+    color: var(--color-accent);
+    transform: scale(1.15);
+}
+
+.hero__scroll-indicator {
+    position: absolute;
+    bottom: var(--spacing-xl);
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.6rem;
+    color: var(--color-text-light);
+    opacity: 0.6;
+    animation: bounceIndicator 2.5s infinite ease-in-out;
+}
+
+.hero__scroll-indicator:hover {
+    opacity: 1;
+}
+
+.section--cta .btn--cta-final.btn--outline-light { /* Selector específico */
+    /* Los estilos base vienen de .btn y .btn--outline-light */
+}
+
+.section--cta .btn--cta-final.btn--outline-light:hover {
+    background-color: var(--color-accent); /* Fondo naranja */
+    color: var(--color-text-light);       /* Texto claro */
+    border-color: var(--color-accent);    /* Borde naranja */
+}
+
+.section--cta .btn--cta-final.btn--outline:hover {
+    background-color: var(--color-accent); /* Fondo naranja */
+    color: var(--color-text-light);       /* Texto claro */
+    border-color: var(--color-accent);    /* Borde naranja */
+    /* El transform: translateY(-2px); ya lo hereda del :hover de .btn--outline si lo tiene,
+       o puedes añadirlo aquí si quieres asegurarte. */
+}
+
+@keyframes bounceIndicator {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+/* --- Intro Section ("Un Poco Sobre Mí") --- */
+.section--intro {
+    background-color: var(--color-surface-light);
+}
+
+.section--intro__container {
+    display: flex;
+    /* align-items: center;  Cambiamos esto para permitir que la imagen se estire */
+    align-items: stretch; /* Hace que los hijos flex ocupen toda la altura del contenedor flex si no tienen altura propia */
+    gap: var(--spacing-xxl);
+}
+
+.section--intro__image-wrapper {
+    flex: 0 0 320px; /* Mantenemos un ancho fijo o un flex-basis */
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--box-shadow-medium);
+    /* Hacemos que el wrapper sea un contenedor flex para controlar la imagen interna */
+    display: flex; /* Para que la imagen interna pueda usar height: 100% del wrapper */
+}
+
+.section--intro__profile-pic {
+    width: 100%;
+    height: 100%; /* La imagen ocupa el 100% de la altura de su contenedor (.section--intro__image-wrapper) */
+    object-fit: cover; /* Mantiene la proporción y recorta si es necesario */
+}
+
+.section--intro__text-content {
+    flex: 1;
+}
+
+.section--intro__text-content .section__title--left {
+    color: var(--color-secondary);
+}
+
+.section--intro__text-content .btn {
+    margin-top: var(--spacing-lg);
+}
+
+.section--intro__text-content .section__paragraph {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    max-width: 700px; /* Se mantiene */
+    color: var(--color-text-dark); /* Usamos el color de texto oscuro definido en variables */
+    margin-bottom: var(--spacing-lg); /* Se mantiene o ajusta */
+    /* === AÑADE ESTA LÍNEA PARA JUSTIFICAR EL TEXTO === */
+    text-align: justify;
+}
+
+/* --- Featured Projects Section --- */
+.section--featured-projects {
+    background-color: var(--color-background-light);
+}
+
+.featured-projects__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.featured-projects__view-all {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+}
+
+/* --- Call to Action (CTA) Final Section --- */
+.section--cta {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+}
+.section--cta .section__title--light {
+    color: var(--color-text-light); /* Asegurar el color, por si acaso */
+}
+
+.section--cta__container {
+    text-align: center;
+    max-width: 700px;
+}
+
+.section--cta .btn {
+    margin-top: var(--spacing-lg);
+}

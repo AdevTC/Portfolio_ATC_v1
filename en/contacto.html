@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Adrián Tomás Cerdá</title>
+
+    <link rel="stylesheet" href="css/base/base.css">
+    <link rel="stylesheet" href="css/base/layout.css">
+    <link rel="stylesheet" href="css/base/responsive.css">
+    <link rel="stylesheet" href="css/base/variables.css">
+
+    <link rel="stylesheet" href="css/components/components.css">
+    <link rel="stylesheet" href="css/components/fab.css">
+
+    <link rel="stylesheet" href="css/pages/contacto.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&family=Open+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="img/ATCLogo2.png" alt="Logo ATC" class="logo-img">
+                Adrián Tomás
+            </a>
+
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="index.html" class="main-nav__link active">Inicio</a></li>
+                    <li><a href="sobre.html" class="main-nav__link">Sobre Mí</a></li>
+                    <li><a href="experiencia.html" class="main-nav__link">Experiencia</a></li>
+                    <li><a href="educacion.html" class="main-nav__link">Educación</a></li>
+                    <li><a href="habilidades.html" class="main-nav__link">Habilidades</a></li>
+                    <li><a href="certificaciones.html" class="main-nav__link">Certificaciones</a></li>
+                    <li><a href="proyectos.html" class="main-nav__link">Proyectos</a></li>
+                    <li><a href="testimonios.html" class="main-nav__link">Testimonios</a></li>
+                    <li><a href="hobbies.html" class="main-nav__link">Hobbies</a></li>
+                    <li><a href="contacto.html" class="main-nav__link">Contacto</a></li>
+                </ul>
+            </nav> <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Cambiar tema" title="Cambiar tema">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-intro-banner">
+            <div class="page-intro-banner__video-container">
+                <video autoplay loop muted playsinline class="page-intro-banner__video-bg">
+                    <source src="vid/hero-background8.mp4" type="video/mp4">
+                    Tu navegador no soporta vídeos HTML5.
+                </video>
+                <div class="page-intro-banner__video-overlay"></div>
+            </div>
+            <div class="container page-intro-banner__content">
+                <div class="page-intro-banner__text-content">
+                    <h1 class="page-intro-banner__title">Hablemos</h1>
+                    <p class="page-intro-banner__subtitle">Si tienes alguna pregunta, propuesta o simplemente quieres
+                        conectar, no dudes en escribirme.</p>
+                </div>
+            </div>
+            <div class="page-intro-banner__shape"></div>
+        </div>
+
+
+
+        <section class="section section--contact">
+            <div class="container section__container contact-content-wrapper">
+
+                <aside class="contact-info animate-on-scroll">
+                    <h2 class="contact-info__title">Información de Contacto</h2>
+                    <p class="contact-info__text">
+                        Puedes contactarme directamente a través de los siguientes canales o usando el formulario.
+                        ¡Espero tu mensaje!
+                    </p>
+                    <ul class="contact-info__list">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:adriantomascv@gmail.com">adriantomascv@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fab fa-linkedin"></i>
+                            <a href="https://linkedin.com/in/adriantomascerda/"
+                                target="_blank">linkedin.com/in/adriantomascerda</a>
+                        </li>
+                        <li>
+                            <i class="fab fa-github"></i>
+                            <a href="https://github.com/AdevTC" target="_blank">github.com/AdevTC</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Madrid, España</span>
+                        </li>
+                    </ul>
+                </aside>
+
+                <div class="contact-form-wrapper animate-on-scroll animate-delay-1">
+                    <h2 class="contact-form-wrapper__title">Envíame un Mensaje</h2>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="userName">Nombre:</label> <input type="text" id="userName" name="userName"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="userEmail">Email:</label> <input type="email" id="userEmail" name="userEmail"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="userSubject">Asunto:</label> <input type="text" id="userSubject"
+                                name="userSubject">
+                        </div>
+                        <div class="form-group">
+                            <label for="userMessage">Mensaje:</label> <textarea id="userMessage" name="userMessage"
+                                rows="6" required></textarea>
+                        </div>
+                        <div class="form-group form-group--submit">
+                            <button type="submit" class="btn btn--primary btn--full-width">Enviar Mensaje</button>
+                        </div>
+                    </form>
+                    <div id="form-message" class="form-message"></div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-section" id="footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Adrián Tomás Cerdá. Todos los derechos reservados.</p>
+            <div class="social-links-footer">
+                <a href="https://github.com/AdevTC" target="_blank" aria-label="GitHub"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/adriantomascerda/" target="_blank" aria-label="LinkedIn"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="mailto:adriantomascv@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scrollToTopBtn" aria-label="Volver arriba" title="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <div class="fab-checkbox-wrapper">
+        <input type="checkbox" id="fabCheckboxToggle" class="fab-checkbox-toggle__input">
+        <label for="fabCheckboxToggle" class="fab-checkbox-toggle__button" aria-label="Acciones rápidas">
+            <i class="fas fa-plus fab-icon-plus"></i>
+            <i class="fas fa-times fab-icon-close"></i>
+        </label>
+        <div class="fab-checkbox-actions">
+            <a href="contacto.html#contactForm" class="fab-checkbox-action__item" title="Enviar Mensaje">
+                <i class="fas fa-paper-plane"></i>
+            </a>
+            <a href="mailto:adriantomascv@gmail.com" class="fab-checkbox-action__item" title="Enviar Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://linkedin.com/in/adriantomascerda/" target="_blank" class="fab-checkbox-action__item"
+                title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="pdf/Currículum Vitae ATC.pdf" target="_blank" class="fab-checkbox-action__item"
+                title="Descargar CV">
+                <i class="fas fa-file-download"></i>
+            </a>
+        </div>
+    </div>
+
+     <script src="js/ui/navbar.js"></script>
+    <script src="js/ui/scrollToTop.js"></script>
+    <script src="js/ui/fab.js"></script>
+    <script src="js/ui/themeToggle.js"></script>
+    <script src="js/ui/animations.js"></script>
+    <script src="js/ui/parallax.js"></script>
+    <script src="js/forms/contactForm.js"></script>
+    <script src="js/utils/smoothScroll.js"></script>
+    <script src="js/utils/footerUtils.js"></script>
+</body>
+
+</html>

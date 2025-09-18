@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mí - Adrián Tomás Cerdá</title>
+
+    <link rel="stylesheet" href="../css/base/base.css">
+    <link rel="stylesheet" href="../css/base/layout.css">
+    <link rel="stylesheet" href="../css/base/responsive.css">
+    <link rel="stylesheet" href="../css/base/variables.css">
+
+    <link rel="stylesheet" href="../css/components/components.css">
+    <link rel="stylesheet" href="../css/components/fab.css">
+
+    <link rel="stylesheet" href="../css/pages/sobre.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&family=Open+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="../img/ATCLogo2.png" alt="Logo ATC" class="logo-img">
+                Adrián Tomás
+            </a>
+
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="index.html" class="main-nav__link active">Inicio</a></li>
+                    <li><a href="sobre.html" class="main-nav__link">Sobre Mí</a></li>
+                    <li><a href="experiencia.html" class="main-nav__link">Experiencia</a></li>
+                    <li><a href="educacion.html" class="main-nav__link">Educación</a></li>
+                    <li><a href="habilidades.html" class="main-nav__link">Habilidades</a></li>
+                    <li><a href="certificaciones.html" class="main-nav__link">Certificaciones</a></li>
+                    <li><a href="proyectos.html" class="main-nav__link">Proyectos</a></li>
+                    <li><a href="testimonios.html" class="main-nav__link">Testimonios</a></li>
+                    <li><a href="hobbies.html" class="main-nav__link">Hobbies</a></li>
+                    <li><a href="contacto.html" class="main-nav__link">Contacto</a></li>
+                </ul>
+            </nav> <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Cambiar tema" title="Cambiar tema">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-intro-banner">
+            <div class="page-intro-banner__video-container">
+                <video autoplay loop muted playsinline class="page-intro-banner__video-bg">
+                    <source src="../vid/hero-background8.mp4" type="video/mp4">
+                    Tu navegador no soporta vídeos HTML5.
+                </video>
+                <div class="page-intro-banner__video-overlay"></div>
+            </div>
+            <div class="container page-intro-banner__content">
+                <div class="page-intro-banner__text-content">
+                    <h1 class="page-intro-banner__title">Sobre Mí</h1>
+                    <p class="page-intro-banner__subtitle">Conoce un poco más sobre mi perfil profesional, mis pasiones
+                        y cómo veo el mundo del desarrollo de software.</p>
+                </div>
+            </div>
+            <div class="page-intro-banner__shape"></div>
+        </div>
+
+        <section class="section section--about">
+            <div class="container section__container section--about__container">
+
+                <div class="about-me__main-content">
+                    <div class="about-me__image-wrapper animate-on-scroll">
+                        <img src="../img/AdevTCLogo.png" alt="Foto de Adrián Tomás Cerdá" class="about-me__profile-pic">
+                    </div>
+                    <div class="about-me__text-wrapper animate-on-scroll animate-delay-1">
+                        <h2 class="section__title section__title--left about-me__greeting">¡Hola! Soy Adrián</h2>
+                        <p class="section__paragraph">
+                            Desde que descubrí el mundo de la programación, me he dedicado con pasión a construir
+                            soluciones de software que no solo sean funcionales, sino también eficientes y escalables.
+                            Mi especialización se centra en el ecosistema Java y Spring Boot, con un fuerte enfoque en
+                            la creación y mantenimiento de integraciones SAP robustas, utilizando tecnologías como SAP
+                            Cloud Platform Integration (CPI) y SAP PI/PO.
+                        </p>
+                        <p class="section__paragraph">
+                            Disfruto desentrañando la complejidad de los sistemas empresariales para mejorar su
+                            intercomunicación a través de APIs REST/SOAP y arquitecturas de microservicios. Creo
+                            firmemente en el poder de la automatización y la optimización de procesos para aportar valor
+                            real a los proyectos.
+                        </p>
+                        <p class="section__paragraph">
+                            Más allá de lo técnico, soy una persona curiosa, en constante aprendizaje y siempre
+                            dispuesto a colaborar en equipo para alcanzar objetivos comunes. Me motiva la posibilidad de
+                            enfrentar nuevos desafíos y encontrar formas creativas de resolver problemas.
+                        </p>
+                        <div class="about-me__cta-buttons">
+                            <a href="../pdf/Currículum Vitae ATC.pdf" target="_blank" class="btn btn--primary">Descargar
+                                CV</a>
+                            <a href="contacto.html" class="btn btn--outline">Contactar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-me__values animate-on-scroll">
+                    <h3 class="section__title section__title--center">Mis Valores Fundamentales</h3>
+                    <div class="values-grid">
+                        <div class="value-item">
+                            <div class="value-item__icon"><i class="fas fa-lightbulb"></i></div>
+                            <h4 class="value-item__title">Innovación</h4>
+                            <p class="value-item__text">Búsqueda constante de soluciones creativas y eficientes.</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-item__icon"><i class="fas fa-users"></i></div>
+                            <h4 class="value-item__title">Colaboración</h4>
+                            <p class="value-item__text">El trabajo en equipo como pilar para el éxito.</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-item__icon"><i class="fas fa-layer-group"></i></div>
+                            <h4 class="value-item__title">Calidad</h4>
+                            <p class="value-item__text">Compromiso con la excelencia y el software robusto.</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-item__icon"><i class="fas fa-brain"></i></div>
+                            <h4 class="value-item__title">Aprendizaje Continuo</h4>
+                            <p class="value-item__text">Adaptación y crecimiento constante en un mundo tecnológico
+                                cambiante.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-section" id="footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Adrián Tomás Cerdá. Todos los derechos reservados.</p>
+            <div class="social-links-footer">
+                <a href="https://github.com/AdevTC" target="_blank" aria-label="GitHub"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/adriantomascerda/" target="_blank" aria-label="LinkedIn"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="mailto:adriantomascv@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scrollToTopBtn" aria-label="Volver arriba" title="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <div class="language-fab-wrapper">
+        <input type="checkbox" id="languageFabToggle" class="language-fab-toggle__input">
+        <label for="languageFabToggle" class="language-fab-toggle__button" aria-label="Seleccionar idioma"
+            title="Idioma">
+            <i class="fas fa-exchange-alt fab-icon-main"></i> <i class="fas fa-times fab-icon-close"></i> </label>
+        <div class="language-fab-actions">
+            <a href="../es/index.html" class="language-fab-action__item" title="Español">
+                <img src="../img/flags/es_flag.webp" alt="Español"> </a>
+            <a href="../en/index.html" class="language-fab-action__item" title="English">
+                <img src="../img/flags/en_flag.png" alt="English">
+            </a>
+            <a href="../fr/index.html" class="language-fab-action__item" title="Français">
+                <img src="../img/flags/fr_flag.webp" alt="Français">
+            </a>
+            <a href="../de/index.html" class="language-fab-action__item" title="Deutsch">
+                <img src="../img/flags/de_flag.png" alt="Deutsch">
+            </a>
+            <a href="../it/index.html" class="language-fab-action__item" title="Italiano">
+                <img src="../img/flags/it_flag.png" alt="Italiano">
+            </a>
+            <a href="../pt/index.html" class="language-fab-action__item" title="Português">
+                <img src="../img/flags/pt_flag.png" alt="Português"> </a>
+        </div>
+    </div>
+
+    <div class="fab-checkbox-wrapper">
+        <input type="checkbox" id="fabCheckboxToggle" class="fab-checkbox-toggle__input">
+        <label for="fabCheckboxToggle" class="fab-checkbox-toggle__button" aria-label="Acciones rápidas">
+            <i class="fas fa-plus fab-icon-plus"></i>
+            <i class="fas fa-times fab-icon-close"></i>
+        </label>
+        <div class="fab-checkbox-actions">
+            <a href="contacto.html#contactForm" class="fab-checkbox-action__item" title="Enviar Mensaje">
+                <i class="fas fa-paper-plane"></i>
+            </a>
+            <a href="mailto:adriantomascv@gmail.com" class="fab-checkbox-action__item" title="Enviar Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://linkedin.com/in/adriantomascerda/" target="_blank" class="fab-checkbox-action__item"
+                title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="../pdf/Currículum Vitae ATC.pdf" target="_blank" class="fab-checkbox-action__item"
+                title="Descargar CV">
+                <i class="fas fa-file-download"></i>
+            </a>
+        </div>
+    </div>
+
+    <script src="../js/ui/navbar.js"></script>
+    <script src="../js/ui/scrollToTop.js"></script>
+    <script src="../js/ui/fab.js"></script>
+    <script src="../js/ui/themeToggle.js"></script>
+    <script src="../js/ui/animations.js"></script>
+    <script src="../js/ui/parallax.js"></script>
+    <script src="../js/utils/smoothScroll.js"></script>
+    <script src="../js/utils/footerUtils.js"></script>
+</body>
+
+</html>

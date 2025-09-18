@@ -1,0 +1,298 @@
+/* css/modern_components_PRIMERO.css */
+
+/* --- Botones --- */
+.btn {
+    display: inline-block;
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-bold);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--border-radius-md);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    text-align: center;
+    line-height: 1.2;
+    text-decoration: none;
+}
+
+.btn--primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border-color: var(--color-primary);
+}
+.btn--primary:hover {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(var(--color-primary-rgb, 74, 105, 189), 0.3);
+}
+
+.btn--secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    border-color: var(--color-secondary);
+}
+.btn--secondary:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-text-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(var(--color-secondary-rgb, 44, 62, 80), 0.3);
+}
+
+.btn--outline { /* Para el hero, sobre fondo oscuro */
+    background-color: transparent;
+    color: var(--color-text-light);
+    border-color: var(--color-text-light);
+}
+.btn--outline-light:hover {
+    background-color: var(--color-accent); /* <<< CAMBIO: Fondo naranja en hover */
+    color: var(--color-text-light);       /* <<< CAMBIO: Texto claro sobre el naranja */
+    border-color: var(--color-primary);    /* <<< CAMBIO: Borde naranja en hover */
+    transform: translateY(-2px);
+}
+
+.btn--outline-light {
+    background-color: transparent;
+    color: var(--color-text-light); /* Texto blanco */
+    border-color: var(--color-text-light); /* Borde blanco */
+}
+.btn--outline-light:hover {
+    background-color: var(--color-text-light); /* Fondo blanco */
+    color: var(--color-secondary);         /* Texto oscuro */
+    transform: translateY(-2px);
+}
+
+.btn--hero {
+    padding: var(--spacing-lg) var(--spacing-xxl);
+    font-size: 1.05rem;
+}
+
+.btn--accent {
+    background-color: var(--color-accent); /* Naranja */
+    color: var(--color-text-light);    /* Texto blanco/claro */
+    border-color: var(--color-accent);
+}
+
+.btn--accent:hover {
+    background-color: #e67e00; /* Un naranja un poco más oscuro para el hover, o define una variable --color-accent-dark */
+    border-color: #e67e00;
+    color: var(--color-text-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(var(--color-accent-rgb, 255, 140, 0), 0.3); /* Necesitarás --color-accent-rgb en variables.css */
+}
+
+/* --- Tarjetas de Proyecto --- */
+.project-card {
+        background-color: var(--bg-color-surface);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-soft);
+    overflow: hidden; /* Importante para el overlay y el zoom de la imagen */
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    position: relative; /* Para posicionar el overlay de la imagen */
+}
+
+.project-card:hover {
+    transform: translateY(-8px); /* Lo eleva un poco más */
+    box-shadow: var(--box-shadow-medium);
+}
+
+
+.project-card__image-container {
+    position: relative; /* Para el overlay */
+    overflow: hidden;
+    height: 220px;
+    background-color: var(--color-background-light);
+}
+
+
+.project-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease-out;
+}
+
+.project-card__image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(var(--color-primary-rgb, 74, 105, 189), 0.3); /* Overlay azul sutil */
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    z-index: 1; /* Encima de la imagen */
+}
+
+.project-card:hover .project-card__image-container::after {
+    opacity: 1;
+}
+
+
+.project-card:hover .project-card__image {
+    transform: scale(1.10); /* Un poco más de zoom */
+}
+
+.project-card__content {
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: relative; /* Para asegurar que esté sobre cualquier parte del overlay si se desborda */
+    z-index: 2;
+}
+
+.project-card__title {
+    font-size: 1.35rem;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-secondary);
+}
+
+.project-card__description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1;
+}
+
+.project-card__tags {
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+
+
+.tag {
+    background-color: var(--color-background-light);
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-medium);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    text-transform: uppercase;
+    transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+    cursor: default;
+}
+
+/* === NUEVA REGLA PARA EL HOVER DE LOS TAGS === */
+.tag:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    transform: scale(1.05);
+}
+
+.project-card__links { /* Contenedor de los botones/enlaces de acción */
+    margin-top: auto; /* Empuja al final */
+    align-self: flex-start; /* Alinea a la izquierda */
+    opacity: 0.7; /* Ligeramente ocultos por defecto */
+    transform: translateY(10px); /* Ligeramente abajo por defecto */
+    transition: opacity var(--transition-fast) 0.1s, transform var(--transition-fast) 0.1s;
+    /* El delay en la transición es para que aparezcan un poco después del hover general de la tarjeta */
+}
+
+.project-card__link { /* Si usas un enlace de texto en vez de botones */
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    /* La opacidad y transform se controlan por .project-card__links ahora */
+}
+
+.project-card:hover .project-card__links {
+    opacity: 1; /* Totalmente visibles en hover */
+    transform: translateY(0); /* En su posición normal en hover */
+}
+
+.project-card__link i {
+    margin-left: var(--spacing-xs);
+    transition: transform var(--transition-fast);
+}
+
+.project-card__link:hover {
+    color: var(--color-accent); /* <<< TEXTO DEL ENLACE A NARANJA EN HOVER */
+}
+
+.project-card__link:hover i {
+    transform: translateX(4px);
+}
+
+.btn--outline { /* Para el hero, sobre fondo oscuro */
+    background-color: transparent;
+    color: var(--color-text-light);
+    border-color: var(--color-text-light);
+}
+.btn--outline:hover {
+    background-color: var(--color-text-light);
+    color: var(--color-secondary);
+}
+
+.btn--outline-light { /* Para usar sobre fondos claros, o como el CTA final sobre fondo oscuro */
+    background-color: transparent;
+    /* Estaba color: var(--color-text-light); border-color: var(--color-text-light); */
+    /* CAMBIAR PARA USAR SOBRE FONDO CLARO DE TARJETA: */
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+.btn--outline-light:hover {
+    /* Estaba background-color: var(--color-text-light); color: var(--color-secondary); */
+    /* CAMBIAR: */
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+/* === NUEVO O MOVIDO AQUÍ: ESTILO PARA EL DIVISOR DE SECCIÓN === */
+.section__divider {
+    border: 0; /* Quitar el borde por defecto del hr */
+    height: 1px; /* Altura de la línea */
+    background-image: linear-gradient(
+        to right,
+        transparent,             /* Inicio transparente */
+        var(--color-border-light), /* Color del borde en el centro (gris claro) */
+        transparent              /* Final transparente */
+    );
+    margin: var(--spacing-xxl) auto; /* Margen vertical (48px) y centrado horizontal */
+    width: 70%; /* Ancho del divisor, puedes ajustarlo (ej. 60% o 80%) */
+}
+
+input[type="text"],
+input[type="email"],
+textarea,
+select { /* Añade otros tipos de input si es necesario */
+    /* ... width, padding, border-radius, font-family, font-size ... */
+    background-color: var(--bg-color-input);    /* Cambiará con el tema */
+    color: var(--text-color-main);           /* Cambiará con el tema (usa el texto principal) */
+    border: 1px solid var(--border-color-input); /* Cambiará con el tema */
+    transition: border-color var(--transition-fast), 
+                box-shadow var(--transition-fast), 
+                background-color var(--transition-fast), 
+                color var(--transition-fast);
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+textarea::placeholder {
+    color: var(--text-color-muted); /* Esta variable también cambia con el tema */
+    opacity: 0.7;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--border-color-input-focus); /* Esta puede o no cambiar con el tema, según tu preferencia */
+    box-shadow: 0 0 0 3px rgba(var(--shadow-input-focus-rgb), 0.25);
+}

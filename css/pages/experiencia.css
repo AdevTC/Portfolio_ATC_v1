@@ -1,0 +1,109 @@
+/* css/modern_experiencia_PRIMERO.css */
+
+.section--experience {
+    background-color: var(--color-background-light); /* Fondo principal de la página para esta sección */
+}
+
+.experience-item {
+    display: flex;
+    align-items: flex-start; /* Alinear logo y detalles al inicio (arriba) */
+    gap: var(--spacing-xl); /* Espacio entre logo y detalles (32px) */
+    padding: var(--spacing-xl); /* Padding interno para la "tarjeta" de experiencia */
+    background-color: var(--color-surface-light); /* Fondo blanco para la tarjeta */
+    border-radius: var(--border-radius-md); /* Bordes redondeados */
+    box-shadow: var(--box-shadow-soft);     /* Sombra suave */
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.experience-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-medium);
+}
+
+.experience-item__logo-container {
+    flex: 0 0 80px; /* Ancho fijo para el contenedor del logo, no se encoge ni crece */
+                    /* Puedes ajustarlo, ej: 90px o 100px */
+    margin-top: var(--spacing-xs); /* Pequeño ajuste vertical si es necesario */
+}
+
+.experience-item__company-logo {
+    width: 100%;
+    height: auto;
+    max-height: 80px; /* Altura máxima del logo */
+    object-fit: contain; /* Para que el logo se escale bien */
+    border-radius: var(--border-radius-sm); /* Ligero redondeo para el logo mismo */
+}
+
+.experience-item__details {
+    flex: 1; /* El texto ocupa el espacio restante */
+}
+
+.experience-item__title {
+    font-size: 1.3rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-secondary); /* Azul Pizarra Oscuro */
+    margin-bottom: var(--spacing-xs); /* 4px */
+    display: flex; /* Para alinear el icono con el texto si es necesario */
+    align-items: center;
+}
+.experience-item__title i {
+    margin-right: var(--spacing-sm); /* 8px */
+    color: var(--color-primary); /* Color del icono */
+    font-size: 1.1em; /* Relativo al tamaño del h3 */
+}
+
+
+.experience-item__company-info {
+    font-size: 0.95rem;
+    font-weight: var(--font-weight-medium); /* 500 */
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-xs); /* 4px */
+}
+
+.experience-item__dates {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--color-text-muted); /* Gris */
+    margin-bottom: var(--spacing-md); /* 16px */
+}
+
+.experience-item__description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-md); /* 16px */
+}
+
+.experience-item__responsibilities {
+    list-style: none; /* Ya lo tienes en base, pero por si acaso */
+    padding-left: 0;
+    margin-top: var(--spacing-sm);
+}
+
+.experience-item__responsibilities li {
+    font-size: 0.9rem;
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-sm); /* 8px */
+    padding-left: var(--spacing-lg); /* 24px para indentar y dejar espacio para el pseudo-elemento */
+    position: relative;
+}
+
+.experience-item__responsibilities li::before {
+    content: '\f0da'; /* Icono de Font Awesome (chevron-right) o puedes usar '\2023' (punto triangular) o '\25B8' */
+    font-family: 'Font Awesome 5 Free'; /* O 'Font Awesome 6 Free' dependiendo de tu versión */
+    font-weight: 900; /* Necesario para los iconos sólidos de FA */
+    color: var(--color-primary); /* Color del marcador de lista */
+    position: absolute;
+    left: var(--spacing-sm); /* Posición del marcador */
+    top: 1px; /* Ajuste vertical fino */
+    font-size: 0.8em; /* Tamaño del marcador */
+}
+
+/* Divisor entre secciones de experiencia */
+.section__divider {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, transparent, var(--color-border-light), transparent);
+    margin: var(--spacing-xxl) auto; /* 48px de margen vertical */
+    width: 70%;
+}

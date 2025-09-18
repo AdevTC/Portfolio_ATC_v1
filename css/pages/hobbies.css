@@ -1,0 +1,66 @@
+/* css/modern_hobbies_PRIMERO.css */
+
+.section--hobbies {
+    background-color: var(--color-background-light); /* Fondo principal para esta sección */
+}
+
+.hobbies-intro-text {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--spacing-xl); /* Espacio antes del grid */
+    text-align: center;
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+}
+
+.hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2, 3 o 4 columnas */
+    gap: var(--spacing-xl); /* Espacio entre tarjetas */
+}
+
+.hobby-card {
+    background-color: var(--color-surface-light); /* Fondo blanco para la tarjeta */
+    padding: var(--spacing-xl); /* Padding interno */
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-soft);
+    text-align: center; /* Centrar contenido de la tarjeta */
+    display: flex;
+    flex-direction: column; /* Para alinear el contenido verticalmente si las alturas varían */
+    align-items: center;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.hobby-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-medium);
+}
+
+.hobby-card__icon {
+    font-size: 2.8rem; /* Tamaño del icono del hobbie */
+    color: var(--color-primary); /* Color primario para el icono */
+    margin-bottom: var(--spacing-md);
+    /* Opcional: un círculo de fondo para el icono */
+    /* width: 70px; */
+    /* height: 70px; */
+    /* background-color: rgba(var(--color-primary-rgb, 74, 105, 189), 0.1); */
+    /* border-radius: 50%; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+
+.hobby-card__title {
+    font-size: 1.3rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-secondary); /* Azul Pizarra Oscuro */
+    margin-bottom: var(--spacing-sm);
+}
+
+.hobby-card__description {
+    font-size: 0.9rem;
+    color: var(--color-text-muted); /* Gris */
+    line-height: 1.6;
+    flex-grow: 1; /* Si quieres que todas las tarjetas tengan la misma altura y la descripción ocupe el espacio */
+}

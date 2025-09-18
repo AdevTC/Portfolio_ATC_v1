@@ -1,0 +1,733 @@
+/* css/base/responsive.css */
+
+/* ==========================================================================
+   PUNTO DE RUPTURA GRANDE (ANTES DE TABLETS) ~1480px (o tu valor original)
+   ========================================================================== */
+@media (max-width: 1480px) { /* Si este es tu breakpoint para el menú hamburguesa, mantenlo */
+
+    /* --- Navbar Moderna y Menú Hamburguesa --- */
+    .navbar .main-nav {
+        position: absolute;
+        top: var(--navbar-height);
+        right: 0;
+        width: 280px;
+        background-color: var(--navbar-background);
+        backdrop-filter: blur(var(--navbar-backdrop-blur));
+        -webkit-backdrop-filter: blur(var(--navbar-backdrop-blur));
+        box-shadow: -3px 3px 10px rgba(0,0,0,0.05);
+        border-top: 1px solid var(--color-border-light);
+        transform: translateX(100%);
+        /* transition: transform var(--transition-normal); Eliminado para control con allow-transition */
+        padding: var(--spacing-md) 0;
+        z-index: 999;
+        visibility: hidden; /* Inicialmente oculto */
+    }
+
+    /* Clases para controlar la transición y evitar FOUC */
+    .navbar .main-nav.allow-transition {
+        transition: transform var(--transition-normal), visibility 0s;
+    }
+    .navbar .main-nav.nav-open.allow-transition {
+        transition: transform var(--transition-normal), visibility 0s;
+    }
+    /* END Clases para controlar la transición */
+
+
+    .navbar .main-nav.nav-open {
+        transform: translateX(0);  /* Mover a la vista */
+        visibility: visible;       /* Hacer visible e interactuable */
+    }
+
+    .navbar .main-nav ul {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .navbar .main-nav ul li {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .navbar .main-nav ul li a {
+        display: block;
+        padding: var(--spacing-md) var(--spacing-xl);
+        text-align: left;
+        border-bottom: 1px solid var(--color-border-light);
+        border-radius: 0;
+    }
+    .navbar .main-nav ul li:last-child a {
+        border-bottom: none;
+    }
+
+    .navbar .main-nav ul li a::before {
+        left: 0;
+        bottom: auto;
+        top: 50%;
+        transform: translateY(-50%) scaleY(0);
+        width: 4px;
+        height: 70%;
+        transform-origin: center left;
+    }
+    .navbar .main-nav ul li a:hover::before,
+    .navbar .main-nav ul li a.active::before {
+        transform: translateY(-50%) scaleY(1);
+    }
+    .navbar .main-nav ul li a.active {
+        color: var(--color-primary);
+        background-color: rgba(var(--color-primary-rgb, 74, 105, 189), 0.05);
+    }
+    .navbar .main-nav ul li a:hover {
+        color: var(--color-primary);
+        background-color: rgba(var(--color-primary-rgb, 74, 105, 189), 0.1);
+    }
+
+    .nav-toggle { /* Botón hamburguesa original */
+        display: block; /* Mostrar botón hamburguesa */
+    }
+
+    /* El resto de tus estilos para este breakpoint (1480px) pueden ir aquí si son específicos y no de tablet general */
+}
+
+
+/* ==========================================================================
+   TABLETS Y DISPOSITIVOS MEDIANOS (ej. ~992px)
+   ========================================================================== */
+@media (max-width: 992px) {
+    /* Aquí ya se muestra el menú hamburguesa por el breakpoint anterior,
+       así que estos son ajustes adicionales para tabletas si son necesarios
+       o si el breakpoint del menú hamburguesa es 992px en lugar de 1480px.
+       Si el menú ya está bien en 1480px, muchos estilos de .navbar .main-nav no necesitan repetirse.
+    */
+
+    /* --- Page Intro Banner (Común a páginas internas) --- */
+    .page-intro-banner__title {
+        font-size: 2.4rem; /* Reducido de 2.8rem */
+    }
+    .page-intro-banner__subtitle {
+        font-size: 1rem; /* Reducido de 1.1rem */
+    }
+
+    /* --- Sección Intro (Página de Inicio y Sobre Mí similar) --- */
+    .section--intro__container,
+    .about-me__main-content {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: var(--spacing-xl);
+    }
+    .section--intro__image-wrapper,
+    .about-me__image-wrapper {
+        margin-bottom: var(--spacing-lg);
+        flex-basis: auto;
+        width: 70%;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .section--intro__profile-pic,
+    .about-me__profile-pic {
+        height: auto;
+    }
+    .section--intro__text-content,
+    .about-me__text-wrapper {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .section--intro__text-content .section__title--left,
+    .about-me__greeting.section__title--left {
+        text-align: center;
+    }
+
+    /* --- Página "Sobre Mí" - Valores --- */
+    .values-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: var(--spacing-lg);
+    }
+
+    /* --- Página "Experiencia" --- */
+    .experience-item {
+        gap: var(--spacing-lg);
+    }
+    .experience-item__logo-container {
+        flex: 0 0 70px;
+    }
+    .experience-item__company-logo {
+        max-height: 70px;
+    }
+    .experience-item__title {
+        font-size: 1.2rem;
+    }
+
+    /* --- Página "Educación" --- */
+    .education-item {
+        gap: var(--spacing-md);
+        padding: var(--spacing-lg);
+    }
+    .education-item__icon-container {
+        flex: 0 0 40px;
+        height: 40px;
+        margin-top: 0;
+    }
+    .education-item__icon-container i {
+        font-size: 1.2rem;
+    }
+    .education-item__title {
+        font-size: 1.15rem;
+    }
+
+    /* --- Página "Habilidades Detallada" --- */
+    .skill-main-category__title {
+        font-size: 1.8rem;
+    }
+    .skill-cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: var(--spacing-lg);
+    }
+    .skill-card {
+        padding: var(--spacing-md);
+    }
+    .skill-card__logo-wrapper {
+        width: 60px;
+        height: 60px;
+    }
+    .skill-card__name {
+        font-size: 1.15rem;
+    }
+
+    /* --- Página "Certificaciones" --- */
+    .certification-item {
+        gap: var(--spacing-md);
+        padding: var(--spacing-lg);
+    }
+    .certification-item__icon-container {
+        flex: 0 0 40px;
+        height: 40px;
+        margin-top: 0;
+    }
+    .certification-item__icon-container i {
+        font-size: 1.2rem;
+    }
+    .certification-item__title {
+        font-size: 1.1rem;
+    }
+
+    /* --- Página "Testimonios" --- */
+    .testimonial-card {
+        padding: var(--spacing-lg);
+    }
+    .testimonial-card__quote-icon {
+        font-size: 2rem; /* Reducido de 2.5rem */
+        top: var(--spacing-md);
+        left: var(--spacing-md);
+    }
+    .testimonial-card__quote {
+        padding-left: calc(2rem + var(--spacing-sm)); /* Ajustado al nuevo tamaño del icono */
+        font-size: 1rem; /* Reducido de 1.05rem */
+    }
+
+    /* --- Formulario de Testimonio y Contacto --- */
+    .write-testimonial-section,
+    .contact-content-wrapper {
+        flex-direction: column;
+        gap: var(--spacing-xl);
+    }
+     .contact-info,
+    .contact-form-wrapper {
+        flex-basis: auto;
+        width: 100%;
+    }
+    .contact-form-wrapper {
+        margin-top: 0;
+    }
+
+    /* --- Página "Hobbies" --- */
+    .hobbies-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-lg);
+    }
+    .hobby-card {
+        padding: var(--spacing-lg);
+    }
+    .hobby-card__icon {
+        font-size: 2.5rem; /* Reducido de 2.8rem */
+    }
+    .hobby-card__title {
+        font-size: 1.2rem; /* Reducido de 1.3rem */
+    }
+
+    /* --- Página "Proyectos" --- */
+    .project-filters {
+        gap: var(--spacing-xs);
+    }
+    .btn--filter {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+    /* .projects-page-grid no necesita cambio aquí si ya es auto-fit */
+
+    /* === RESPONSIVE PARA PÁGINA "DETALLE DE PROYECTO" === */
+    .project-detail__main-layout {
+        flex-direction: column;
+    }
+    .project-detail__content {
+        order: 1;
+    }
+    .project-detail__sidebar {
+        order: 2;
+        width: 100%;
+        margin-top: var(--spacing-xl);
+        position: static; /* Quitar sticky en tablet */
+    }
+    .project-detail-page-banner .page-intro-banner__title {
+        font-size: 2.2rem; /* Ajustado para tablet */
+    }
+
+} /* Fin de @media (max-width: 992px) */
+
+
+/* ==========================================================================
+   MÓVILES GRANDES Y TABLETS PEQUEÑAS (ej. ~768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* --- Hero Section (Página de Inicio) --- */
+    .hero__title {
+        font-size: 2.5rem; /* Ya estaba así, se mantiene */
+    }
+    .hero__subtitle {
+        font-size: 1.1rem; /* Ya estaba así, se mantiene */
+    }
+    .hero__cta-group {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    .hero__cta-group .btn {
+        width: 80%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    .hero__scroll-indicator {
+        font-size: 1.3rem; /* Reducido de 1.6rem */
+        bottom: var(--spacing-md); /* Más pegado abajo */
+    }
+
+    /* --- Títulos de Sección Generales --- */
+    .section__title {
+        font-size: 2rem; /* Ya estaba así, se mantiene */
+    }
+    .page-intro-banner__title {
+        font-size: 2rem; /* Ya estaba así, se mantiene */
+    }
+    .page-intro-banner__subtitle {
+        font-size: 0.95rem; /* Ya estaba así, se mantiene */
+    }
+
+    /* --- Proyectos Destacados (Index) y Grid Página Proyectos --- */
+    .featured-projects__grid,
+    .projects-page-grid {
+        grid-template-columns: 1fr; /* Una columna */
+    }
+    .project-card__image-container {
+        height: 200px; /* Ya estaba así, se mantiene */
+    }
+
+    /* --- CTA Final (Index) --- */
+    .section--cta .section__title {
+        font-size: 1.8rem; /* Ya estaba así, se mantiene */
+    }
+    .section--cta .section__paragraph {
+        font-size: 1rem; /* Ya estaba así, se mantiene */
+    }
+
+    /* --- Botones Flotantes: Ajustes de Posición y Tamaño Ligeros --- */
+    /* FAB de Idiomas (Izquierda) */
+    .language-fab-wrapper {
+        bottom: var(--spacing-md); /* Un poco más arriba que el borde inferior */
+        left: var(--spacing-md);
+    }
+    .language-fab-toggle__button {
+        width: 50px; /* Ligeramente más pequeño */
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    .language-fab-action__item {
+        width: 42px;
+        height: 42px;
+    }
+    .language-fab-action__item img {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* FAB de Acciones (Derecha) */
+    .fab-checkbox-wrapper {
+        bottom: var(--spacing-md);
+        right: var(--spacing-md);
+    }
+    .fab-checkbox-toggle__button {
+        width: 50px; /* Ligeramente más pequeño */
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    .fab-checkbox-action__item {
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
+    }
+
+    /* Scroll to Top (Derecha, encima del FAB de acciones) */
+    .scroll-to-top {
+        width: 42px; /* Ligeramente más pequeño */
+        height: 42px;
+        font-size: 1.1rem;
+        right: var(--spacing-md);
+        /* Se posicionará encima del FAB de acciones con más precisión en el siguiente breakpoint */
+        /* Por ahora, un valor genérico un poco más arriba */
+        bottom: calc(var(--spacing-md) + 50px + var(--spacing-xs)); /* (8px + 50px fab + 4px) = 62px */
+    }
+
+} /* Fin de @media (max-width: 768px) */
+
+
+/* ==========================================================================
+   MÓVILES PEQUEÑOS (ej. ~599.98px o 576px si prefieres)
+   ========================================================================== */
+@media (max-width: 599.98px) {
+    /* --- Base y Contenedor --- */
+    .container {
+        padding-left: var(--spacing-sm); /* Menos padding lateral */
+        padding-right: var(--spacing-sm);
+    }
+    body {
+        font-size: 0.95rem; /* Reducir un poco la fuente base */
+    }
+
+    /* --- Navbar --- */
+    .navbar .container {
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
+    }
+    .navbar .main-nav {
+        width: 250px; /* Menú desplegable un poco más estrecho */
+    }
+    .navbar .main-nav ul li a {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: 0.9rem; /* Ligeramente más grande que el 0.85rem original */
+    }
+
+    /* --- Hero Section (Index) --- */
+    .hero__title {
+        font-size: 2rem; /* Ya estaba así, se mantiene */
+    }
+    .hero__subtitle {
+        font-size: 1rem; /* Ya estaba así, se mantiene */
+    }
+    .btn { /* Botones un poco más pequeños */
+        padding: var(--spacing-sm) var(--spacing-md); /* Ajustado */
+        font-size: 0.85rem; /* Ajustado */
+    }
+    .btn--hero {
+        padding: var(--spacing-md) var(--spacing-lg); /* Ajustado */
+        font-size: 0.95rem; /* Ajustado */
+    }
+
+    /* --- Page Intro Banner (Común a páginas internas) --- */
+    .page-intro-banner {
+        padding: var(--spacing-lg) 0 calc(var(--spacing-lg) + 30px); /* Menos padding inferior */
+    }
+    .page-intro-banner__title {
+        font-size: 1.8rem; /* Ya estaba así */
+    }
+    .page-intro-banner__subtitle {
+        font-size: 0.9rem; /* Ya estaba así */
+    }
+    .page-intro-banner__shape {
+        height: 50px; /* Más pequeña */
+    }
+
+    /* --- Intro Section (Index) y Sobre Mí --- */
+    .section--intro__image-wrapper,
+    .about-me__image-wrapper {
+        width: 80%;
+        max-width: 260px; /* Más pequeño */
+    }
+    .section--intro__text-content .section__title,
+    .about-me__greeting {
+        font-size: 1.7rem; /* Más pequeño */
+    }
+    .section--intro__text-content .section__paragraph,
+    .about-me__text-wrapper .section__paragraph {
+        font-size: 0.9rem; /* Más pequeño */
+    }
+    .about-me__cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-sm);
+    }
+    .about-me__cta-buttons .btn {
+        width: 100%;
+        max-width: 260px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+    .value-item__icon {font-size: 1.8rem;} /* Más pequeño */
+    .value-item__title {font-size: 1.05rem;} /* Más pequeño */
+
+    /* --- Experiencia Laboral --- */
+    .experience-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: var(--spacing-md); /* Menos padding */
+    }
+    .experience-item__logo-container {
+        flex-basis: auto;
+        width: 70px; /* Más pequeño */
+        margin-bottom: var(--spacing-sm);
+    }
+    .experience-item__company-logo {
+        max-height: 60px; /* Más pequeño */
+    }
+    .experience-item__details {
+        width: 100%;
+    }
+    .experience-item__title {
+        justify-content: center;
+        font-size: 1.05rem; /* Más pequeño */
+    }
+    .experience-item__description {
+        text-align: left;
+        font-size: 0.85rem;
+    }
+    .experience-item__responsibilities {
+        max-width: 100%;
+        padding-left: 0;
+    }
+    .experience-item__responsibilities li {
+        padding-left: var(--spacing-md);
+        font-size: 0.85rem;
+    }
+
+    /* --- Educación --- */
+    .education-item {
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md);
+    }
+    .education-item__icon-container {
+         flex: 0 0 30px; /* Más pequeño */
+         height: 30px;
+    }
+    .education-item__icon-container i {
+        font-size: 0.9rem; /* Más pequeño */
+    }
+    .education-item__title {
+        font-size: 1rem; /* Más pequeño */
+    }
+    .education-item__institution,
+    .education-item__dates,
+    .education-item__level,
+    .education-item__highlights li {
+        font-size: 0.8rem; /* Más pequeño */
+    }
+    .education-item__highlights li {
+        padding-left: var(--spacing-sm);
+    }
+    .education-item__highlights li::before {
+        left: 0;
+    }
+
+    /* --- Habilidades Detallada --- */
+    .skill-main-category__title {
+        font-size: 1.5rem; /* Más pequeño */
+    }
+    .skill-cards-grid {
+        grid-template-columns: 1fr;
+    }
+    .skill-card__logo-wrapper {
+        width: 50px; /* Más pequeño */
+        height: 50px;
+    }
+    .skill-card__name {
+        font-size: 1.1rem; /* Más pequeño */
+    }
+    .skill-card__general-desc,
+    .skill-card__my-experience {
+        font-size: 0.8rem; /* Ya estaba así */
+        min-height: auto;
+    }
+
+    /* --- Certificaciones --- */
+    .certification-item {
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md);
+    }
+    .certification-item__icon-container {
+         flex: 0 0 30px; /* Más pequeño */
+         height: 30px;
+    }
+    .certification-item__icon-container i {
+        font-size: 0.9rem; /* Más pequeño */
+    }
+    .certification-item__title {
+        font-size: 0.95rem; /* Más pequeño */
+    }
+    .certification-item__issuer,
+    .certification-item__dates,
+    .certification-item__description {
+        font-size: 0.8rem; /* Más pequeño */
+    }
+    .certification-item__link.btn {
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: var(--spacing-xs);
+        padding: var(--spacing-xs) var(--spacing-sm); /* Más pequeño */
+        font-size: 0.75rem; /* Más pequeño */
+    }
+
+    /* --- Testimonios --- */
+    .testimonial-card__quote-icon {
+        font-size: 1.6rem; /* Más pequeño */
+        top: var(--spacing-xs);
+        left: var(--spacing-xs);
+    }
+    .testimonial-card__quote {
+        padding-left: calc(1.6rem + var(--spacing-xs)); /* Ajustado */
+        font-size: 0.9rem; /* Más pequeño */
+    }
+    .testimonial-card__author {
+        text-align: center;
+    }
+    .write-testimonial-section .section__title { font-size: 1.5rem; }
+    .write-testimonial-section .section__paragraph { font-size: 0.85rem; }
+    .testimonial-form { padding: var(--spacing-md); }
+
+    /* --- Hobbies --- */
+    .hobbies-grid {
+        grid-template-columns: 1fr;
+    }
+    .hobby-card__icon {
+        font-size: 2rem; /* Más pequeño */
+    }
+    .hobby-card__title {
+        font-size: 1.1rem; /* Más pequeño */
+    }
+    .hobby-card__description {
+        font-size: 0.8rem; /* Más pequeño */
+    }
+
+    /* --- Contacto --- */
+    .contact-info,
+    .contact-form-wrapper {
+        padding: var(--spacing-md); /* Menos padding */
+    }
+    .contact-info__title,
+    .contact-form-wrapper__title {
+        font-size: 1.2rem; /* Más pequeño */
+    }
+    .contact-form .form-group--submit {
+        text-align: center;
+    }
+
+    /* --- AJUSTES FINALES PARA BOTONES FLOTANTES EN MÓVILES MUY PEQUEÑOS --- */
+    :root {
+        --fab-small-size: 40px;      /* Tamaño base para FABs en móviles pequeños */
+        --fab-action-small-size: 36px; /* Tamaño para los botones de acción de los FABs */
+        --fab-flag-small-size: 20px;   /* Tamaño para las banderas dentro del FAB de idiomas */
+        --scroll-to-top-small-size: 38px;
+    }
+
+    /* FAB de Idiomas (Izquierda) */
+    .language-fab-wrapper {
+        bottom: var(--spacing-sm); /* Más pegado al borde */
+        left: var(--spacing-sm);
+    }
+    .language-fab-toggle__button {
+        width: var(--fab-small-size);
+        height: var(--fab-small-size);
+        font-size: 1.1rem; /* Icono principal más pequeño */
+    }
+    .language-fab-actions {
+        margin-bottom: var(--spacing-xs); /* Menos espacio entre FAB principal y acciones */
+    }
+    .language-fab-action__item {
+        width: var(--fab-action-small-size);
+        height: var(--fab-action-small-size);
+        margin-top: var(--spacing-xs); /* Menos espacio entre acciones */
+    }
+    .language-fab-action__item img {
+        width: var(--fab-flag-small-size);
+        height: var(--fab-flag-small-size);
+    }
+
+    /* FAB de Acciones (Derecha, Abajo) */
+    .fab-checkbox-wrapper {
+        bottom: var(--spacing-sm);
+        right: var(--spacing-sm);
+    }
+    .fab-checkbox-toggle__button {
+        width: var(--fab-small-size);
+        height: var(--fab-small-size);
+        font-size: 1.2rem; /* Icono principal más pequeño */
+    }
+    .fab-checkbox-actions {
+        margin-bottom: var(--spacing-xs);
+    }
+    .fab-checkbox-action__item {
+        width: var(--fab-action-small-size);
+        height: var(--fab-action-small-size);
+        font-size: 0.9rem; /* Iconos de acción más pequeños */
+        margin-top: var(--spacing-xs);
+    }
+
+    /* Botón Scroll To Top (Derecha, Encima del FAB de acciones) */
+    .scroll-to-top {
+        width: var(--scroll-to-top-small-size);
+        height: var(--scroll-to-top-small-size);
+        font-size: 0.9rem; /* Icono más pequeño */
+        right: var(--spacing-sm); /* Alineado con el FAB de acciones */
+        /* Se posiciona encima del FAB de acciones rápidas:
+           bottom: (margen-inferior-fab) + (altura-fab) + (pequeño-espacio-extra)
+        */
+        bottom: calc(var(--spacing-sm) + var(--fab-small-size) + var(--spacing-xs));
+        /* Ejemplo: 8px (spacing-sm) + 40px (fab-small-size) + 4px (spacing-xs) = 52px */
+    }
+    /* --- FIN AJUSTES BOTONES FLOTANTES --- */
+
+
+    /* === RESPONSIVE PARA PÁGINA "DETALLE DE PROYECTO" (Móviles muy pequeños) === */
+    .project-detail-page-banner .page-intro-banner__title {
+        font-size: 1.6rem; /* Más pequeño */
+    }
+    .project-detail-page-banner .page-intro-banner__subtitle {
+        font-size: 0.85rem; /* Más pequeño */
+    }
+    .project-detail__content .section__title--left,
+    .project-detail__subtitle {
+        font-size: 1.3rem; /* Más pequeño */
+    }
+    .project-detail__list li,
+    .project-detail__sidebar .sidebar-widget p {
+        font-size: 0.85rem; /* Más pequeño */
+    }
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Miniaturas más pequeñas */
+        gap: var(--spacing-sm);
+    }
+     .project-detail__sidebar {
+        padding: var(--spacing-sm); /* Menos padding */
+    }
+
+} /* Fin de @media (max-width: 599.98px) */
+
+/*
+    Notas sobre la "progresividad":
+    - Los cambios de tamaño y espaciado se distribuyen entre los breakpoints.
+    - Se utilizan variables CSS (--fab-small-size, etc.) para facilitar ajustes finos en móviles pequeños.
+    - Las transiciones CSS definidas en tus archivos base (variables.css, fab.css, layout.css)
+      ayudarán a que los cambios de estado (hover, active, aparición de menús) sean suaves.
+    - El layout general ya usa flexbox y grid con `auto-fit` y `minmax`, lo que contribuye a la fluidez.
+    - Si notas saltos bruscos en algún punto intermedio entre estos breakpoints, podrías considerar
+      añadir un breakpoint intermedio adicional (ej. @media (max-width: 480px)) para refinar aún más.
+*/

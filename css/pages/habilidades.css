@@ -1,0 +1,112 @@
+/* css/modern_habilidades_DETALLADO_PRIMERO.css */
+
+.section--skills-detailed {
+    background-color: var(--color-background-light);
+}
+
+.skills-intro-text { /* Texto introductorio opcional */
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--spacing-xxl); /* Más espacio antes de la primera categoría */
+    text-align: center;
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+}
+
+.skill-main-category {
+    margin-bottom: var(--spacing-section); /* Espacio entre categorías principales */
+}
+.skill-main-category:last-of-type {
+    margin-bottom: 0;
+}
+
+.skill-main-category__title {
+    font-size: 2rem; /* Título de categoría (Frontend, Backend, etc.) */
+    font-weight: var(--font-weight-bold);
+    color: var(--color-secondary);
+    text-align: center;
+    margin-bottom: var(--spacing-xl); /* Espacio antes del grid de tarjetas */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+.skill-main-category__title i {
+    font-size: 0.9em; /* Relativo al H2 */
+    color: var(--color-primary);
+}
+
+.skill-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajusta minmax según el contenido */
+    gap: var(--spacing-xl); /* Espacio entre tarjetas de habilidad individuales */
+}
+
+.skill-card {
+    background-color: var(--color-surface-light); /* Fondo blanco */
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-soft);
+    padding: var(--spacing-lg); /* 24px */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar logo y nombre */
+    text-align: center;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-medium);
+}
+
+.skill-card__logo-wrapper {
+    width: 70px;  /* Tamaño del contenedor del logo */
+    height: 70px;
+    margin-bottom: var(--spacing-md); /* 16px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-background-light); /* Fondo sutil para el logo si no es transparente */
+    border-radius: 50%; /* Hacerlo circular si los logos son cuadrados o caben bien */
+    padding: var(--spacing-sm); /* Pequeño padding interno si es necesario */
+}
+
+.skill-card__logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Asegura que el logo se vea bien */
+}
+
+.skill-card__name {
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-sm); /* 8px */
+}
+
+.skill-card__general-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-md); /* 16px */
+    line-height: 1.5;
+    min-height: 4.5em; /* Trata de darle una altura mínima para alinear tarjetas (3 líneas aprox) */
+                       /* Esto puede ser complicado si el texto varía mucho. Considera JS o flexbox para igualar alturas si es crucial. */
+}
+
+.skill-card__my-experience {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--color-text-dark);
+    line-height: 1.5;
+    margin-top: auto; /* Empuja esta descripción hacia abajo si la general es corta */
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--color-border-light); /* Separador sutil */
+    width: 100%;
+}
+
+/* Divisor entre categorías principales (reutiliza la clase de experiencia) */
+.section__divider { /* Definido en modern_experiencia_PRIMERO.css o modern_layout_PRIMERO.css */
+    margin-top: 0;
+    margin-bottom: var(--spacing-section); /* Espacio después del divisor, antes de la siguiente categoría */
+}

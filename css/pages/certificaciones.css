@@ -1,0 +1,89 @@
+/* css/modern_certificaciones_PRIMERO.css */
+
+.section--certifications {
+    background-color: var(--color-background-light); /* Fondo principal para esta sección */
+}
+
+.certification-item {
+    display: flex;
+    align-items: flex-start; /* Alinear icono y detalles al inicio (arriba) */
+    gap: var(--spacing-lg);   /* Espacio entre icono y detalles (24px) */
+    padding: var(--spacing-xl); /* Padding interno para la "tarjeta" (32px) */
+    background-color: var(--color-surface-light); /* Fondo blanco para la tarjeta */
+    border-radius: var(--border-radius-md);     /* Bordes redondeados */
+    box-shadow: var(--box-shadow-soft);         /* Sombra suave */
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.certification-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-medium);
+}
+
+.certification-item__icon-container {
+    flex: 0 0 50px; /* Ancho fijo para el contenedor del icono */
+    height: 50px;  /* Alto fijo para el contenedor del icono */
+    background-color: rgba(var(--color-primary-rgb, 74, 105, 189), 0.1); /* Fondo sutil para el icono */
+    border-radius: 50%; /* Círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: var(--spacing-xs); /* Pequeño ajuste vertical */
+}
+
+.certification-item__icon-container i {
+    font-size: 1.5rem; /* Tamaño del icono */
+    color: var(--color-primary); /* Color del icono */
+}
+
+.certification-item__details {
+    flex: 1; /* El texto ocupa el espacio restante */
+}
+
+.certification-item__title {
+    font-size: 1.2rem; /* Tamaño del título de la certificación */
+    font-weight: var(--font-weight-bold);
+    color: var(--color-secondary); /* Azul Pizarra Oscuro */
+    margin-bottom: var(--spacing-xs); /* 4px */
+    line-height: 1.4;
+}
+
+.certification-item__issuer {
+    font-size: 0.95rem;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-xs);
+}
+
+.certification-item__dates {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-md); /* 16px */
+}
+
+.certification-item__description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-lg); /* 24px, más espacio antes del botón */
+}
+
+.certification-item__link.btn--outline {
+    color: var(--color-primary); /* Asegurar color del texto del botón */
+    border-color: var(--color-primary); /* Asegurar color del borde */
+    padding: var(--spacing-sm) var(--spacing-md); /* Ajustar padding si es necesario */
+    font-size: 0.85rem; /* Un poco más pequeño el texto del botón */
+    text-transform: none; /* Quitar mayúsculas si no se quiere */
+}
+.certification-item__link.btn--outline i {
+    margin-left: var(--spacing-xs);
+    font-size: 0.9em; /* Icono del enlace un poco más pequeño */
+}
+
+.certification-item__link.btn--outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+/* El .section__divider ya está estilizado (asumiendo que está en modern_components_PRIMERO.css o similar) */
