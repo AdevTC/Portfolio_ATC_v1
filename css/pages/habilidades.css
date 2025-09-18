@@ -110,3 +110,21 @@
     margin-top: 0;
     margin-bottom: var(--spacing-section); /* Espacio después del divisor, antes de la siguiente categoría */
 }
+
+/* Nuevos estilos para el nivel de habilidad */
+.skill-card__level {
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    background-color: rgba(var(--color-primary-rgb), 0.1);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    text-transform: uppercase;
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+}
+
+.skill-card {
+    position: relative; /* Necesario para posicionar el nivel */
+}
